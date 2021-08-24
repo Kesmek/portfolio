@@ -16,7 +16,7 @@ function App() {
   const resumeRef = useRef<HTMLElement>(null);
   const projectsRef = useRef<HTMLElement>(null);
 
-  const [focused, setFocused] = useState<string>();
+  const [focused, setFocused] = useState<string>("home");
 
   const handleScroll = () => {
     const aboutPos = aboutRef.current?.getBoundingClientRect();
