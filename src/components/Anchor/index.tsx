@@ -1,9 +1,9 @@
 import { AnchorHTMLAttributes, useState } from "react";
-import classNames from "classnames";
 import "./styles.css";
 
 type Props = {
   textHoverColor?: string;
+  focused?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Anchor = ({
@@ -12,21 +12,20 @@ const Anchor = ({
   target = "_blank",
   rel = "noreferrer",
   textHoverColor = "slateblue",
+  focused = false,
 }: Props) => {
   const [hover, setHover] = useState(false);
 
   return (
     <a
-      className={classNames("button", {
-        hover: hover,
-      })}
+      className="button"
       href={href}
       target={target}
       rel={rel}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        color: hover ? textHoverColor : "black",
+        color: hover || focused ? textHoverColor : "black",
       }}
     >
       {children}

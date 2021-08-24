@@ -9,30 +9,80 @@ import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import Resume from "./containers/Resume";
 import NextButton from "./components/nextButton";
 import Projects from "./containers/Projects";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
+  const aboutRef = useRef<HTMLElement>(null);
+  const resumeRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+
+  const [focused, setFocused] = useState<string>();
+
+  const handleScroll = () => {
+    const aboutPos = aboutRef.current?.getBoundingClientRect();
+    const resumePos = resumeRef.current?.getBoundingClientRect();
+    const projectsPos = projectsRef.current?.getBoundingClientRect();
+
+    if (aboutPos && resumePos && projectsPos) {
+      if (
+        window.scrollY >
+        projectsPos.y - projectsPos.height / 2 + window.scrollY
+      ) {
+        setFocused("projects");
+      } else if (
+        window.scrollY >
+        resumePos.y - resumePos.height / 2 + window.scrollY
+      ) {
+        setFocused("resume");
+      } else if (
+        window.scrollY >
+        aboutPos.y - aboutPos.height / 2 + window.scrollY
+      ) {
+        setFocused("about");
+      } else {
+        setFocused("home");
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="App">
       <aside>
         <img src={profile} className="profileImage" alt="Profile of myself" />
         <div className="column center">
           <h3 className="navLink">
-            <Anchor href="#home" target="_self">
+            <Anchor href="#home" target="_self" focused={focused === "home"}>
               Home
             </Anchor>
           </h3>
           <h3 className="navLink">
-            <Anchor href="#about" target="_self">
+            <Anchor href="#about" target="_self" focused={focused === "about"}>
               About
             </Anchor>
           </h3>
           <h3 className="navLink">
-            <Anchor href="#resume" target="_self">
+            <Anchor
+              href="#resume"
+              target="_self"
+              focused={focused === "resume"}
+            >
               Resume
             </Anchor>
           </h3>
           <h3 className="navLink">
-            <Anchor href="#projects" target="_self">
+            <Anchor
+              href="#projects"
+              target="_self"
+              focused={focused === "projects"}
+            >
               Projects
             </Anchor>
           </h3>
@@ -58,13 +108,13 @@ function App() {
         <Home />
         <NextButton nextSection="about" />
       </header>
-      <section id="about" className="section">
+      <section id="about" className="section" ref={aboutRef}>
         <About />
       </section>
-      <section id="resume" className="section">
+      <section id="resume" className="section" ref={resumeRef}>
         <Resume />
       </section>
-      <section id="projects" className="section">
+      <section id="projects" className="section" ref={projectsRef}>
         <Projects />
       </section>
     </div>

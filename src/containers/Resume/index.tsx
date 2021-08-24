@@ -12,21 +12,31 @@ const Resume = () => {
       <h1>Education</h1>
       <div>
         <h3>John Abbott College</h3>
-        <div className="row range">
-          <p>Sciences Program</p>
-          <p>2015 - 2017</p>
-        </div>
+        <ul>
+          <li>
+            <div className="row range">
+              <p>Sciences Program</p>
+              <p>2015 - 2017</p>
+            </div>
+          </li>
+        </ul>
       </div>
       <div>
         <h3>McGill University</h3>
-        <div className="row range">
-          <p>Major Computer Science</p>
-          <p>2017 - Present</p>
-        </div>
-        <div className="row range">
-          <p>Minor Physics</p>
-          <p>2017 - 2019</p>
-        </div>
+        <ul>
+          <li>
+            <div className="row range">
+              <p>Major Computer Science</p>
+              <p>2017 - Present</p>
+            </div>
+          </li>
+          <li>
+            <div className="row range">
+              <p>Minor Physics</p>
+              <p>2017 - 2019</p>
+            </div>
+          </li>
+        </ul>
       </div>
       <h1>Skills</h1>
       <div className="row center">

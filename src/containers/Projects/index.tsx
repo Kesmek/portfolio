@@ -8,7 +8,7 @@ const Projects = () => {
   return (
     <div>
       <h1>Projects</h1>
-      <h2 style={{ margin: 0 }}>Puncher</h2>
+      <h3 style={{ margin: 0 }}>Puncher</h3>
       <div className="projectItem">
         <a
           href="https://github.com/Kesmek/Puncher"
