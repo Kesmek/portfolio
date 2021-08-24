@@ -1,0 +1,21 @@
+h3 {
+  margin: 0;
+}
+
+.skills {
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  width: 100%;
+}
+
+.y-label {
+  transform: rotate(-60deg);
+}
+
+.range {
+  justify-content: space-between;
+  width: 40%;
+}

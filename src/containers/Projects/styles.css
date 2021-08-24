@@ -1,0 +1,15 @@
+.appImage {
+  width: 100%;
+}
+
+.overlay {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.projectItem {
+  position: relative;
+  width: 20%;
+}

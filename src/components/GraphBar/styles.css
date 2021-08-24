@@ -1,0 +1,24 @@
+.barContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bar {
+  align-items: center;
+  justify-content: flex-end;
+  width: 80%;
+  background-color: rgb(30, 3, 93);
+  border-radius: 0.2em;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.center-text {
+  text-align: center;
+}
