@@ -1,0 +1,28 @@
+.root {
+    margin: 0;
+    width: 50px;
+    height: 25px;
+    border-radius: 30px;
+    position: relative;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.root:hover {
+    cursor: pointer;
+}
+
+.knub {
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    position: absolute;
+    transition: left .15s linear;
+}
+
+.active-background {
+    height: inherit;
+    margin: 0;
+    transition: width .15s linear;
+}
