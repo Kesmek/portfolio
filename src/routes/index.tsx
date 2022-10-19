@@ -9,7 +9,7 @@ export default component$(() => {
         <p>
           {" "}
           I'm a highly motivated software developer with an interest in
-          performant apps. I have worked across the full techonology stack for
+          performant apps. I have worked across the full technology stack for
           mobile development and am currently learning web development. I am
           always researching ways to improve my programming skills and strive to
           make each project something I can be proud of.
