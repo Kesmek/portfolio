@@ -17,9 +17,10 @@ export default component$(() => {
    */
   return (
     <QwikCity>
-      <head title={"Justin Scopelleti"}>
+      <head>
         <meta charSet="utf-8" />
         <RouterHead />
+        <title>Justin Scopelleti</title>
       </head>
       <body lang="en">
         <RouterOutlet />

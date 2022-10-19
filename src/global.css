@@ -22,7 +22,7 @@
 
 body {
     background-color: var(--primary);
-    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     padding: 0px 20px 40px 20px;
     color: var(--text);
 }
