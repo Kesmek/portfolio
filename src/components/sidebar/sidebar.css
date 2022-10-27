@@ -8,17 +8,15 @@ aside {
     justify-content: center;
     width: 250px;
     border-radius: 10px;
-    padding: 20px 0px;
+    padding: 20px 0;
     background-color: var(--secondary);
-    box-shadow: 0px 0px 30px -10px var(--light-purple);
+    box-shadow: 0 0 30px -10px var(--light-purple);
     gap: 10px;
 }
-
 .dark-mode {
     flex-direction: row;
     gap: 10px;
 }
-
 .profileImage {
     object-fit: cover;
     width: 75%;
@@ -26,7 +24,6 @@ aside {
     border-radius: 50%;
     border: var(--dark-grey) 3px solid;
 }
-
 ul {
     display: flex;
     flex-direction: column;
@@ -37,47 +34,39 @@ ul {
     text-align: center;
     font-size: 26px;
 }
-
 a {
     display: flex;
     justify-content: center;
     color: var(--text);
     text-decoration: none;
 }
-
 li a {
     padding: 10px 0;
 }
-
 li a:hover {
     background-color: var(--dark-grey);
     color: #fafafa;
 }
-
 table {
     display: flex;
     width: 80%;
 }
-
 tbody {
     display: flex;
     flex-direction: column;
     flex: 1;
     gap: 20px
 }
-
 tr {
     display: flex;
     justify-content: space-evenly;
 }
-
 .icon {
     width: 40px;
 }
-
-/*@media screen and (max-width: 1500px) {*/
-/*    aside {*/
-/*        display: none;*/
-/*        transition: all 1s;*/
-/*    }*/
-/*}*/
+@media screen and (max-width: 1500px) {
+    aside {
+        display: none;
+        transition: all 1s;
+    }
+}

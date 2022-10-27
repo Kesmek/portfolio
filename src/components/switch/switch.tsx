@@ -7,7 +7,7 @@ import {
   useStylesScoped$,
 } from "@builder.io/qwik";
 import style from "./switch.css?inline";
-import context from "../../contexts/app";
+import { appContext } from "~/routes/layout";
 import { DarkColors, LightColors } from "~/utils/constants";
 
 interface SwitchProps {
@@ -19,7 +19,7 @@ interface SwitchProps {
 }
 
 export default component$((props: SwitchProps) => {
-  const app = useContext(context);
+  const app = useContext(appContext);
   const {
     activeColor = app.darkMode ? DarkColors.DarkPurple : LightColors.DarkPurple,
     active = false,

@@ -5,7 +5,6 @@
  * the styles in here will be applied to the Document, without any sort of CSS scoping.
  *
  */
-
 :root {
     --dark-blue: #006ce9;
     --light-blue: #18b6f6;
@@ -19,89 +18,73 @@
     --light-gray: #666666;
     scroll-behavior: smooth;
 }
-
 body {
     background-color: var(--primary);
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 0px 20px 40px 20px;
+    padding: 0 20px 40px 20px;
     color: var(--text);
 }
-
 div, section {
     display: flex;
     flex-direction: column;
     max-width: 800px;
     margin: 0 0;
 }
-
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 h1,
 h2 {
     margin: 0 0 5px 0;
 }
-
 .education {
     font-weight: bold;
     font-size: 1.1em;
     margin: 10px 0 0;
     padding: 0;
 }
-
 .mobile-img {
     width: 150px;
 }
-
 .description {
     font-size: 0.8em;
     line-height: 1.5em;
-    margin: 10px 0px;
+    margin: 10px 0;
 }
-
 .icon-link {
     width: fit-content;
 }
-
 ul {
     margin: 0;
 }
-
 a,
 a:visited {
     color: var(--light-purple);
 }
-
 a:hover {
     text-decoration: none;
 }
-
 .row {
     flex: 1;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-
 .gap {
     gap: 50px;
 }
-
 strong {
     font-size: 1.1em;
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 10px;
 }
-
 p {
     line-height: 1.1cm;
     margin: 10px 0 0;
 }
-
 code {
     font-family: Menlo, Monaco, Courier New, monospace;
     font-size: 0.9em;
@@ -110,22 +93,18 @@ code {
     border-radius: 3px;
     border-bottom: 2px solid #bfbfbf;
 }
-
 .subtitle {
     font-size: 1.8em;
     text-decoration: underline;
 }
-
 footer {
     padding: 15px;
     text-align: center;
     font-size: 0.8em;
 }
-
 footer a {
     text-decoration: none;
 }
-
 footer a:hover {
     text-decoration: underline;
 }

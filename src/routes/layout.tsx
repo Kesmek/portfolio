@@ -1,44 +1,49 @@
 import {
   component$,
+  createContext,
   Slot,
   useClientEffect$,
   useContextProvider,
   useStore,
 } from "@builder.io/qwik";
 import Sidebar from "../components/sidebar/sidebar";
-import context from "../contexts/app";
 import { DarkColors, LightColors } from "~/utils/constants";
+
+interface AppContext {
+  darkMode: boolean;
+}
+
+export const appContext = createContext<AppContext>("App-Context");
 
 export default component$(() => {
   const state = useStore({
     darkMode: true,
   });
 
-  useContextProvider(context, state);
+  useContextProvider(appContext, state);
   useClientEffect$(({ track }) => {
     track(() => state.darkMode);
     if (state.darkMode) {
       document.documentElement.style.setProperty(
         "--primary",
-        DarkColors.Primary
+        DarkColors.Primary,
       );
       document.documentElement.style.setProperty(
         "--secondary",
-        DarkColors.Secondary
+        DarkColors.Secondary,
       );
       document.documentElement.style.setProperty("--text", DarkColors.Text);
     } else {
       document.documentElement.style.setProperty(
         "--primary",
-        LightColors.Primary
+        LightColors.Primary,
       );
       document.documentElement.style.setProperty(
         "--secondary",
-        LightColors.Secondary
+        LightColors.Secondary,
       );
       document.documentElement.style.setProperty("--text", LightColors.Text);
     }
-    console.log(document.documentElement.style);
   });
 
   return (
