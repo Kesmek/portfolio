@@ -17,12 +17,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@builder.io/qwik@npm:0.12.1":
-  version: 0.12.1
-  resolution: "@builder.io/qwik@npm:0.12.1"
+"@builder.io/qwik@npm:0.13.3":
+  version: 0.13.3
+  resolution: "@builder.io/qwik@npm:0.13.3"
   bin:
     qwik: qwik.cjs
-  checksum: 65bb5a84c43318db5f39a5282e9fbb183d94b2c7c61b3b1675a38f8b5bd47a81d4a0a3107d0190dafba2cf5fe93e8ffac41d6aa9fd74461b90f3d2c002bbfcfb
+  checksum: 81c95cec758802049201218bbfc79fe6d94c3616b31298c2a2ab39eb64ff18d23363b17557ca6651afe50bd6ff3c9b2b7b2526992b1b4b702113bded75158d04
   languageName: node
   linkType: hard
 
@@ -2752,7 +2752,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-qwik-basic-starter@workspace:."
   dependencies:
-    "@builder.io/qwik": 0.12.1
+    "@builder.io/qwik": 0.13.3
     "@builder.io/qwik-city": 0.0.122
     "@types/eslint": 8.4.10
     "@types/node": latest
