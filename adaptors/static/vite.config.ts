@@ -7,13 +7,13 @@ export default extendConfig(baseConfig, () => {
     build: {
       ssr: true,
       rollupOptions: {
-        input: ["@qwik-city-plan"]
-      }
+        input: ["@qwik-city-plan"],
+      },
     },
     plugins: [
       staticAdaptor({
-        origin: "https://kesmek.github.io"
-      })
-    ]
+        origin: "https://kesmek.github.io",
+      }),
+    ],
   };
 });
