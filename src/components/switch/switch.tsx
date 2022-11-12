@@ -35,9 +35,9 @@ export default component$((props: SwitchProps) => {
   });
   useStylesScoped$(style);
 
-  const handleClick = $(() => {
+  const handleClick = $(async () => {
     if (onClick$) {
-      onClick$();
+      await onClick$();
     }
     state.active = !state.active;
   });

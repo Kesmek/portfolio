@@ -7,6 +7,10 @@ export default component$(() => {
   useStylesScoped$(styles);
   const state = useContext(appContext);
 
+  const toggleDarkMode$ = $(() => {
+    state.darkMode = !state.darkMode;
+  })
+
   return (
     <aside>
       <div class={"dark-mode"}>
@@ -17,9 +21,7 @@ export default component$(() => {
           title={"Dark Mode"}
         />
         <Switch
-          onClick$={$(() => {
-            state.darkMode = !state.darkMode;
-          })}
+          onClick$={toggleDarkMode$}
           active={true}
         />
       </div>
