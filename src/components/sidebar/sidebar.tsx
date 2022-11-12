@@ -9,7 +9,7 @@ export default component$(() => {
 
   const toggleDarkMode$ = $(() => {
     state.darkMode = !state.darkMode;
-  })
+  });
 
   return (
     <aside>
@@ -22,7 +22,7 @@ export default component$(() => {
         />
         <Switch
           onClick$={toggleDarkMode$}
-          active={true}
+          active={state.darkMode}
         />
       </div>
       <img

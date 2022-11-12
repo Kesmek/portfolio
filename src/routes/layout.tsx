@@ -5,9 +5,11 @@ import {
   useClientEffect$,
   useContextProvider,
   useStore,
+  useStyles$,
 } from "@builder.io/qwik";
 import Sidebar from "../components/sidebar/sidebar";
-import { DarkColors, LightColors } from "~/utils/constants";
+import globalStyle from "~/global.css?inline";
+import { theme } from "~/utils/constants";
 
 interface AppContext {
   darkMode: boolean;
@@ -16,33 +18,21 @@ interface AppContext {
 export const appContext = createContext<AppContext>("App-Context");
 
 export default component$(() => {
+  useStyles$(globalStyle);
   const state = useStore({
     darkMode: true,
   });
 
   useContextProvider(appContext, state);
+
   useClientEffect$(({ track }) => {
     track(() => state.darkMode);
-    if (state.darkMode) {
+    const themeStyle = theme[state.darkMode ? "dark" : "light"];
+    for (const item in themeStyle) {
       document.documentElement.style.setProperty(
-        "--primary",
-        DarkColors.Primary,
+        item,
+        themeStyle[item as keyof typeof themeStyle],
       );
-      document.documentElement.style.setProperty(
-        "--secondary",
-        DarkColors.Secondary,
-      );
-      document.documentElement.style.setProperty("--text", DarkColors.Text);
-    } else {
-      document.documentElement.style.setProperty(
-        "--primary",
-        LightColors.Primary,
-      );
-      document.documentElement.style.setProperty(
-        "--secondary",
-        LightColors.Secondary,
-      );
-      document.documentElement.style.setProperty("--text", LightColors.Text);
     }
   });
 

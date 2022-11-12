@@ -8,7 +8,7 @@ import {
 } from "@builder.io/qwik";
 import style from "./switch.css?inline";
 import { appContext } from "~/routes/layout";
-import { DarkColors, LightColors } from "~/utils/constants";
+import { theme } from "~/utils/constants";
 
 interface SwitchProps {
   active?: boolean;
@@ -21,10 +21,10 @@ interface SwitchProps {
 export default component$((props: SwitchProps) => {
   const app = useContext(appContext);
   const {
-    activeColor = app.darkMode ? DarkColors.DarkPurple : LightColors.DarkPurple,
+    activeColor = theme[app.darkMode ? "dark" : "light"]["--dark-purple"],
     active = false,
-    backgroundColor = app.darkMode ? DarkColors.DarkGrey : LightColors.DarkGrey,
-    inactiveColor = app.darkMode ? DarkColors.LightGrey : LightColors.LightGrey,
+    backgroundColor = theme[app.darkMode ? "dark" : "light"]["--dark-grey"],
+    inactiveColor = theme[app.darkMode ? "dark" : "light"]["--light-grey"],
     onClick$,
   } = props;
   const state = useStore({
