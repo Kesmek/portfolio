@@ -7,7 +7,7 @@ export const section = style({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  minHeight: "95vh",
+  minHeight: "100vh",
   width: "100%"
 });
 
