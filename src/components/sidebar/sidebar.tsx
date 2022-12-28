@@ -49,32 +49,32 @@ export default component$(() => {
       </ul>
       <div class={contact}>
         <a
-          className={anchor}
+          class={anchor}
           href={"https://github.com/Kesmek"}
           target={"_blank"}
         >
-          <i className={`fa-brands fa-github ${icon}`}/>
+          <i class={`fa-brands fa-github ${icon}`}/>
         </a>
         <a
-          className={anchor}
+          class={anchor}
           href={"https://www.linkedin.com/in/justin-scopelleti-5b023a180/"}
           target={"_blank"}
         >
-          <i className={`fa-brands fa-linkedin ${icon}`}/>
+          <i class={`fa-brands fa-linkedin ${icon}`}/>
         </a>
         <a
-          className={anchor}
+          class={anchor}
           href={"mailto:justin.scopelleti@gmail.com"}
           target={"_blank"}
         >
-          <i className={`fa-solid fa-envelope ${icon}`}/>
+          <i class={`fa-solid fa-envelope ${icon}`}/>
         </a>
         <a
-          className={anchor}
+          class={anchor}
           href={"tel:+1-514-754-1427"}
           target={"_blank"}
         >
-          <i className={`fa-solid fa-phone ${icon}`}/>
+          <i class={`fa-solid fa-phone ${icon}`}/>
         </a>
       </div>
     </aside>

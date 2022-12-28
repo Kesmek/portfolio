@@ -128,7 +128,7 @@ export default component$(() => {
         <div>
           <a
             href={"https://github.com/Kesmek/botmek"}
-            className={"icon-link"}
+            class={"icon-link"}
             target={"_blank"}
           >
             <img
@@ -139,7 +139,7 @@ export default component$(() => {
           </a>
           <a
             href={"https://github.com/Kesmek/council-bot"}
-            className={"icon-link"}
+            class={"icon-link"}
             target={"_blank"}
           >
             <img
@@ -150,7 +150,7 @@ export default component$(() => {
           </a>
           <a
             href={"https://github.com/Kesmek/devmek"}
-            className={"icon-link"}
+            class={"icon-link"}
             target={"_blank"}
           >
             <img

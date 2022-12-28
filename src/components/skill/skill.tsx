@@ -25,7 +25,7 @@ export default component$((props: SkillProps) => {
       <div class={container}>
         <span>{description}</span>
         <div
-          className={bar}
+          class={bar}
           style={`width: ${experiencePercentage}%; background-color: ${barColor}`}
         />
       </div>
