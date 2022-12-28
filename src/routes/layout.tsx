@@ -15,7 +15,7 @@ import globalStyle, {
   main,
   primaryBody
 } from "~/globalStyles.css";
-import { DocumentHead } from "@builder.io/qwik-city";
+import type { DocumentHead } from "@builder.io/qwik-city";
 
 interface AppContext {
   darkMode: boolean;
