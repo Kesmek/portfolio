@@ -6,11 +6,17 @@ import { vanillaExtractPlugin } from "styled-vanilla-extract/vite";
 
 export default defineConfig(() => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths(), vanillaExtractPlugin()],
+    plugins: [
+      qwikCity(), qwikVite({
+        devTools: {
+          clickToSource: false
+        }
+      }), tsconfigPaths(), vanillaExtractPlugin()
+    ],
     preview: {
       headers: {
-        "Cache-Control": "public, max-age=600",
-      },
-    },
+        "Cache-Control": "public, max-age=600"
+      }
+    }
   };
 });

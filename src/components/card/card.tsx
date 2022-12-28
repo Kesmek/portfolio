@@ -1,5 +1,11 @@
-import { component$, Slot, useStylesScoped$ } from "@builder.io/qwik";
-import style from "./card.css?inline";
+import {
+  component$,
+  Slot,
+  useStyles$,
+  useStylesScoped$
+} from "@builder.io/qwik";
+import style, { card, section } from "./card.css";
+import globalStyle from "~/globalStyles.css";
 
 interface CardProps {
   title: string;
@@ -8,13 +14,17 @@ interface CardProps {
 
 export default component$((props: CardProps) => {
   useStylesScoped$(style);
-  const { title, id = title.toLowerCase() } = props;
+  useStyles$(globalStyle);
+  const {
+    title,
+    id = title.toLowerCase()
+  } = props;
 
   return (
-    <section id={id}>
-      <div class={"card"}>
+    <section id={id} class={section}>
+      <div class={card}>
         <h1>{title}</h1>
-        <Slot />
+        <Slot/>
       </div>
     </section>
   );

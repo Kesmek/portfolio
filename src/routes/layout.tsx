@@ -5,11 +5,16 @@ import {
   useClientEffect$,
   useContextProvider,
   useStore,
-  useStyles$,
+  useStyles$
 } from "@builder.io/qwik";
-import Sidebar from "../components/sidebar/sidebar";
-import globalStyle from "~/global.css?inline";
-import { theme } from "~/utils/constants";
+import Sidebar from "~/components/sidebar/sidebar";
+import { darkTheme } from "~/globalDark.css";
+import { lightTheme } from "~/globalLight.css";
+import globalStyle, {
+  footerAnchor,
+  main,
+  primaryBody
+} from "~/globalStyles.css";
 
 interface AppContext {
   darkMode: boolean;
@@ -20,33 +25,35 @@ export const appContext = createContext<AppContext>("App-Context");
 export default component$(() => {
   useStyles$(globalStyle);
   const state = useStore({
-    darkMode: true,
+    darkMode: true
   });
 
   useContextProvider(appContext, state);
 
   useClientEffect$(({ track }) => {
-    track(() => state.darkMode);
-    const themeStyle = theme[state.darkMode ? "dark" : "light"];
-    for (const item in themeStyle) {
-      document.documentElement.style.setProperty(
-        item,
-        themeStyle[item as keyof typeof themeStyle],
-      );
-    }
-  });
+    track(state.darkMode);
+
+    state.darkMode = localStorage.getItem("theme") === "dark";
+
+  })
 
   return (
-    <>
-      <Sidebar />
-      <main>
-        <Slot />
+    <div class={[
+      primaryBody, state.darkMode
+        ? darkTheme
+        : lightTheme
+    ]}>
+      <Sidebar/>
+      <main class={main}>
+        <Slot/>
+        <footer>
+          <a class={footerAnchor} href="https://qwik.builder.io/"
+             target="_blank">
+            Website made using qwik
+          </a>
+        </footer>
       </main>
-      <footer>
-        <a href="https://qwik.builder.io/" target="_blank">
-          Website made using qwik
-        </a>
-      </footer>
-    </>
+    </div>
   );
 });
+

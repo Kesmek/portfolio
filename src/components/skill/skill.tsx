@@ -1,10 +1,9 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import styles from "./skill.css?inline";
+import styles, { bar, container, icon, skill } from "./skill.css";
 
 interface SkillProps {
   title: string;
-  imageSrc: string;
-  imageAlt: string;
+  source: string;
   description: string;
   experiencePercentage: number;
   barColor: string;
@@ -13,21 +12,20 @@ interface SkillProps {
 export default component$((props: SkillProps) => {
   useStylesScoped$(styles);
   const {
-    imageSrc,
-    imageAlt,
+    source,
     experiencePercentage,
     description,
     barColor,
-    title,
+    title
   } = props;
 
   return (
-    <div className={"row skill"}>
-      <img src={imageSrc} className={"icon"} alt={imageAlt} title={title} />
-      <div class={"container"}>
+    <div class={skill}>
+      <i class={[source, icon]} title={title}/>
+      <div class={container}>
         <span>{description}</span>
         <div
-          className={"bar"}
+          className={bar}
           style={`width: ${experiencePercentage}%; background-color: ${barColor}`}
         />
       </div>

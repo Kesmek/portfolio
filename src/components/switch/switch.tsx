@@ -4,9 +4,9 @@ import {
   PropFunction,
   useContext,
   useStore,
-  useStylesScoped$,
+  useStyles$
 } from "@builder.io/qwik";
-import style from "./switch.css?inline";
+import style, { knub, root } from "./switch.css";
 import { appContext } from "~/routes/layout";
 import { theme } from "~/utils/constants";
 
@@ -19,21 +19,27 @@ interface SwitchProps {
 }
 
 export default component$((props: SwitchProps) => {
+  useStyles$(style);
   const app = useContext(appContext);
   const {
-    activeColor = theme[app.darkMode ? "dark" : "light"]["--dark-purple"],
+    activeColor = theme[app.darkMode
+      ? "dark"
+      : "light"]["brandDark"],
     active = false,
-    backgroundColor = theme[app.darkMode ? "dark" : "light"]["--dark-grey"],
-    inactiveColor = theme[app.darkMode ? "dark" : "light"]["--light-grey"],
-    onClick$,
+    backgroundColor = theme[app.darkMode
+      ? "dark"
+      : "light"]["border"],
+    inactiveColor = theme[app.darkMode
+      ? "dark"
+      : "light"]["highlight"],
+    onClick$
   } = props;
   const state = useStore({
     activeColor,
     active,
     backgroundColor,
-    inactiveColor,
+    inactiveColor
   });
-  useStylesScoped$(style);
 
   const handleClick = $(async () => {
     if (onClick$) {
@@ -44,22 +50,25 @@ export default component$((props: SwitchProps) => {
 
   return (
     <div
-      class={"root"}
-      style={{
-        "background-color": state.backgroundColor,
-        border: `${state.backgroundColor} 5px solid`,
-      }}
+      class={root}
+      // style={assignInlineVars({
+      //   [background]: state.backgroundColor
+      // })}
       preventdefault:click
       onClick$={handleClick}
     >
       <div
-        class={"knub"}
+        class={knub}
         style={{
           "background-color": state.active
             ? state.activeColor
             : state.inactiveColor,
-          left: state.active ? "50%" : "0%",
-          opacity: state.active ? 1 : 0.5,
+          left: state.active
+            ? "50%"
+            : "0%",
+          opacity: state.active
+            ? 1
+            : 0.5
         }}
       />
     </div>

@@ -1,156 +1,169 @@
-import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
-import { Link } from "@builder.io/qwik-city";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import Card from "../components/card/card";
+import Skill from "~/components/skill/skill";
+import { DocumentHead } from "@builder.io/qwik-city";
+import globalStyle, {
+  gap,
+  highlightAnchor,
+  row,
+  screenShot
+} from "~/globalStyles.css";
 
 export default component$(() => {
+  useStyles$(globalStyle);
   return (
-    <div>
-      <h1>
-        Welcome to Qwik <span class="lightning">⚡️</span>
-      </h1>
-
-      <ul>
-        <li>
-          Check out the <code>src/routes</code> directory to get started.
-        </li>
-        <li>
-          Add integrations with <code>npm run qwik add</code>.
-        </li>
-        <li>
-          More info about development in <code>README.md</code>
-        </li>
-      </ul>
-
-      <h2>Commands</h2>
-
-      <table class="commands">
-        <tr>
-          <td>
-            <code>npm run dev</code>
-          </td>
-          <td>Start the dev server and watch for changes.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run preview</code>
-          </td>
-          <td>Production build and start preview server.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run build</code>
-          </td>
-          <td>Production build.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add</code>
-          </td>
-          <td>Select an integration to add.</td>
-        </tr>
-      </table>
-
-      <h2>Add Integrations</h2>
-
-      <table class="commands">
-        <tr>
-          <td>
-            <code>npm run qwik add azure-swa</code>
-          </td>
-          <td>
-            <a href="https://learn.microsoft.com/azure/static-web-apps/overview"
-               target="_blank">
-              Azure Static Web Apps
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add cloudflare-pages</code>
-          </td>
-          <td>
-            <a href="https://developers.cloudflare.com/pages" target="_blank">
-              Cloudflare Pages Server
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add express</code>
-          </td>
-          <td>
-            <a href="https://expressjs.com/" target="_blank">
-              Nodejs Express Server
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add netlify-edge</code>
-          </td>
-          <td>
-            <a href="https://docs.netlify.com/" target="_blank">
-              Netlify Edge Functions
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add static</code>
-          </td>
-          <td>
-            <a
-              href="https://qwik.builder.io/qwikcity/static-site-generation/overview/"
-              target="_blank"
-            >
-              Static Site Generation (SSG)
-            </a>
-          </td>
-        </tr>
-      </table>
-
-      <h2>Community</h2>
-
-      <ul>
-        <li>
-          <span>Questions or just want to say hi? </span>
-          <a href="https://qwik.builder.io/chat" target="_blank">
-            Chat on discord!
+    <>
+      <Card title={"Justin Scopelleti"} id={"intro"}>
+        <p>
+          I'm a highly motivated software developer with an interest in
+          performant apps. I have worked across the full technology stack for
+          mobile development and am currently learning web development. I am
+          always researching ways to improve my programming skills and strive to
+          make each project something I can be proud of.
+        </p>
+      </Card>
+      <Card title={"About"}>
+        <p>
+          I'm a junior software developer with experience primarily developing
+          cross-platform mobile applications, and I'm currently working with web
+          development as well. For mobile development I've used React Native on
+          the front-end alongside MongoDB and Amazon Web Services (Cognito, API
+          Gateway, and Lambda) on the back-end. For web development I am
+          actively working with React.js and Typescript to create performant web
+          applications. I also have some experience working with Java, MySQL,
+          and C++. I have a particular interest in creating/optimizing
+          performant apps, and actively seek ways of improving my skills with
+          those goals in mind.
+        </p>
+        <strong>Contact Information</strong>
+        <span>Justin Scopelleti</span>
+        <span>
+          <a href={"tel:+1514-754-1427"}
+             class={highlightAnchor}>514-754-1427</a>
+        </span>
+        <span>
+          <a href={"mailto:justin.scopelleti@gmail.com"}
+             class={highlightAnchor}>
+            justin.scopelleti@gmail.com
           </a>
-        </li>
-        <li>
-          <span>Follow </span>
-          <a href="https://twitter.com/QwikDev" target="_blank">
-            @QwikDev
+        </span>
+      </Card>
+      <Card title={"Resume"}>
+        <h2>Education</h2>
+        <h3>John Abbott College</h3>
+        <ul>
+          <li>
+            <div class={[row, gap]}>
+              Sciences Program <strong>2015 - 2017</strong>
+            </div>
+          </li>
+        </ul>
+        <h3>McGill University</h3>
+        <ul>
+          <li>
+            Major Computer Science <strong>2017 - 2022</strong>
+          </li>
+          <li>
+            Minor Physics <strong>2017 - 2019</strong>
+          </li>
+        </ul>
+        <h3>Skills</h3>
+        <Skill
+          barColor={"#2277ee"}
+          description={"3+ years - adept, use regularly (with TypeScript)"}
+          experiencePercentage={85}
+          source={"fa-brands fa-js"}
+          title={"JavaScript/TypeScript"}
+        />
+        <Skill
+          barColor={"#FFBB00"}
+          description={"2+ years - basics, use select services"}
+          experiencePercentage={70}
+          source={"fa-brands fa-aws"}
+          title={"Amazon Web Services"}
+        />
+        <Skill
+          barColor={"#559900"}
+          description={"2.5+ years - adept, use comfortably (with npm)"}
+          experiencePercentage={80}
+          source={"fa-brands fa-node"}
+          title={"NodeJS"}
+        />
+        <Skill
+          barColor={"#33DDFF"}
+          description={"2.5+ years - advanced, use frequently"}
+          experiencePercentage={90}
+          source={"fa-brands fa-react"}
+          title={"React/React Native"}
+        />
+      </Card>
+      <Card title={"Projects"}>
+        <h2>Puncher</h2>
+        <p>
+          Created a simple app in React Native for tracking the hours for a
+          shift-based job. Included ability to calculate total hours worked over
+          a given period, editing incorrect punch-in/punch-out times (with a
+          visual cue to mark that it's been edited), and support for tracking
+          more than one job at once.
+        </p>
+        <a
+          href={"https://github.com/Kesmek/Puncher"}
+          class={"icon-link"}
+          target={"_blank"}
+        >
+          <img
+            src={"puncher_demo.png"}
+            class={screenShot}
+            alt={"Image of Puncher app with punches included."}
+          />
+        </a>
+        <h2>Discord Bot(s)</h2>
+        <p>
+          Created multiple discord bots for various purposes, mostly related to
+          administration and organization. Made with NodeJS, TypeScript and some
+          wrappers around the discord API. Heavily leverages the use of
+          dependency injection, and minor database utilities (modeling,
+          read/write) using Prisma.
+        </p>
+        <div>
+          <a
+            href={"https://github.com/Kesmek/botmek"}
+            className={"icon-link"}
+            target={"_blank"}
+          >
+            <img
+              src={"botmek.png"}
+              class={screenShot}
+              alt={"Image of botmek discord bot profile."}
+            />
           </a>
-          <span> on Twitter</span>
-        </li>
-        <li>
-          <span>Open issues and contribute on </span>
-          <a href="https://github.com/BuilderIO/qwik" target="_blank">
-            GitHub
+          <a
+            href={"https://github.com/Kesmek/council-bot"}
+            className={"icon-link"}
+            target={"_blank"}
+          >
+            <img
+              src={"council-bot.png"}
+              class={screenShot}
+              alt={"Image of council-bot discord bot profile."}
+            />
           </a>
-        </li>
-        <li>
-          <span>Watch </span>
-          <a href="https://qwik.builder.io/media/" target="_blank">
-            Presentations, Podcasts, Videos, etc.
+          <a
+            href={"https://github.com/Kesmek/devmek"}
+            className={"icon-link"}
+            target={"_blank"}
+          >
+            <img
+              src={"devmek.png"}
+              class={screenShot}
+              alt={"Image of devmek discord bot profile."}
+            />
           </a>
-        </li>
-      </ul>
-      <Link class="mindblow" href="/flower/">
-        Blow my mind 🤯
-      </Link>
-    </div>
+        </div>
+      </Card>
+    </>
   );
 });
-
-export const head: DocumentHead = {
-  title: "Justin Scopelleti",
-  meta: [
-    {
-      name: "description",
-      content: "Justin Scopelleti's portfolio"
-    }
-  ]
+export const documentHead: DocumentHead = {
+  title: "Justin Scopelleti"
 };

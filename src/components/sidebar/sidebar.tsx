@@ -1,10 +1,18 @@
 import { $, component$, useContext, useStylesScoped$ } from "@builder.io/qwik";
-import styles from "./sidebar.css?inline";
 import { appContext } from "~/routes/layout";
-import Switch from "../switch/switch";
+import style, {
+  anchor,
+  aside,
+  contact,
+  icon,
+  li,
+  profileImage,
+  themeButton,
+  ul
+} from "./sidebar.css";
 
 export default component$(() => {
-  useStylesScoped$(styles);
+  useStylesScoped$(style);
   const state = useContext(appContext);
 
   const toggleDarkMode$ = $(() => {
@@ -12,91 +20,63 @@ export default component$(() => {
   });
 
   return (
-    <aside>
-      <div class={"dark-mode"}>
-        <img
-          src={state.darkMode ? "sun_light.svg" : "sun.svg"}
-          class={"icon"}
-          alt={"Dark mode icon"}
-          title={"Dark Mode"}
-        />
-        <Switch
-          onClick$={toggleDarkMode$}
-          active={state.darkMode}
-        />
-      </div>
+    <aside class={aside}>
+      <a class={themeButton} preventdefault:click onClick$={toggleDarkMode$}
+         title={"Toggle Dark Mode"}>
+        <i
+          class={`fa-solid fa-${state.darkMode
+            ? "sun"
+            : "moon"} ${icon}`}/>
+      </a>
       <img
-        class={"profileImage"}
+        class={profileImage}
         src={"./profile-pic.jpg"}
         alt={"Image of myself"}
       />
-      <ul>
-        <li>
-          <a href="#intro">Intro</a>
+      <ul class={ul}>
+        <li class={li}>
+          <a class={anchor} href="#intro">Intro</a>
         </li>
-        <li>
-          <a href="#about">About</a>
+        <li class={li}>
+          <a class={anchor} href="#about">About</a>
         </li>
-        <li>
-          <a href="#resume">Resume</a>
+        <li class={li}>
+          <a class={anchor} href="#resume">Resume</a>
         </li>
-        <li>
-          <a href="#projects">Projects</a>
+        <li class={li}>
+          <a class={anchor} href="#projects">Projects</a>
         </li>
       </ul>
-      <table>
-        <tbody>
-        <tr>
-          <td>
-            <a href={"https://github.com/Kesmek"} target={"_blank"}>
-              <img
-                class={"icon"}
-                src={state.darkMode ? "github_light.svg" : "github.svg"}
-                alt={"Github Link"}
-                title={"Github"}
-              />
-            </a>
-          </td>
-          <td>
-            <a
-              href={
-                "https://www.linkedin.com/in/justin-scopelleti-5b023a180/"
-              }
-              target={"_blank"}
-            >
-              <img
-                class={"icon"}
-                src={state.darkMode ? "linkedin_light.svg" : "linkedin.svg"}
-                alt={"LinkedIn Link"}
-                title={"LinkedIn"}
-              />
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href={"mailto:justin.scopelleti@gmail.com"} target={"_blank"}>
-              <img
-                class={"icon"}
-                src={state.darkMode ? "email_light.svg" : "email.svg"}
-                alt={"Email Link"}
-                title={"Email"}
-              />
-            </a>
-          </td>
-          <td>
-            <a href={"tel:+1514-754-1427"} target={"_blank"}>
-              <img
-                class={"icon"}
-                src={state.darkMode ? "phone_light.svg" : "phone.svg"}
-                alt={"Phone Number"}
-                title={"Phone Number"}
-              />
-            </a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div class={contact}>
+        <a
+          className={anchor}
+          href={"https://github.com/Kesmek"}
+          target={"_blank"}
+        >
+          <i className={`fa-brands fa-github ${icon}`}/>
+        </a>
+        <a
+          className={anchor}
+          href={"https://www.linkedin.com/in/justin-scopelleti-5b023a180/"}
+          target={"_blank"}
+        >
+          <i className={`fa-brands fa-linkedin ${icon}`}/>
+        </a>
+        <a
+          className={anchor}
+          href={"mailto:justin.scopelleti@gmail.com"}
+          target={"_blank"}
+        >
+          <i className={`fa-solid fa-envelope ${icon}`}/>
+        </a>
+        <a
+          className={anchor}
+          href={"tel:+1-514-754-1427"}
+          target={"_blank"}
+        >
+          <i className={`fa-solid fa-phone ${icon}`}/>
+        </a>
+      </div>
     </aside>
   );
 });
