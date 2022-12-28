@@ -15,6 +15,7 @@ import globalStyle, {
   main,
   primaryBody
 } from "~/globalStyles.css";
+import { DocumentHead } from "@builder.io/qwik-city";
 
 interface AppContext {
   darkMode: boolean;
@@ -35,7 +36,7 @@ export default component$(() => {
 
     state.darkMode = localStorage.getItem("theme") === "dark";
 
-  })
+  });
 
   return (
     <div class={[
@@ -57,3 +58,6 @@ export default component$(() => {
   );
 });
 
+export const documentHead: DocumentHead = {
+  title: "Justin Scopelleti"
+};

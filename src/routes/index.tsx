@@ -1,7 +1,6 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 import Card from "../components/card/card";
 import Skill from "~/components/skill/skill";
-import { DocumentHead } from "@builder.io/qwik-city";
 import globalStyle, {
   gap,
   highlightAnchor,
@@ -35,6 +34,7 @@ export default component$(() => {
           performant apps, and actively seek ways of improving my skills with
           those goals in mind.
         </p>
+        <br/>
         <strong>Contact Information</strong>
         <span>Justin Scopelleti</span>
         <span>
@@ -164,6 +164,3 @@ export default component$(() => {
     </>
   );
 });
-export const documentHead: DocumentHead = {
-  title: "Justin Scopelleti"
-};

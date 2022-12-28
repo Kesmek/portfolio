@@ -33,6 +33,10 @@ globalStyle("p, strong, span, h1, h2, h3, a", {
   padding: 0
 });
 
+globalStyle("p", {
+  lineHeight: "1.6em"
+});
+
 globalStyle("a", {
   textDecoration: "none"
 });
