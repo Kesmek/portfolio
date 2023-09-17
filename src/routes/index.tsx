@@ -1,166 +1,326 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
-import Card from "../components/card/card";
-import Skill from "~/components/skill/skill";
-import globalStyle, {
-  gap,
-  highlightAnchor,
-  row,
-  screenShot
-} from "~/globalStyles.css";
+import { component$ } from "@builder.io/qwik";
+import type { DocumentHead } from "@builder.io/qwik-city";
+import Card from "~/components/card/card";
+import { css, cx } from "~/styled-system/css";
+import McGillImg from "/public/mcgill-university.png?jsx";
+import JohnAbbottImg from "/public/john-abbott.jpg?jsx";
+import PuncherDemo from "/public/puncher_demo.png?jsx";
+import BotmekDemo from "/public/botmek.png?jsx";
+import DevmekDemo from "/public/devmek.png?jsx";
+import DaydreamDemo1 from "/public/daydream1.png?jsx";
+import DaydreamDemo2 from "/public/daydream2.png?jsx";
+import DaydreamDemo3 from "/public/daydream3.png?jsx";
+import CouncilBotDemo from "/public/council-bot.png?jsx";
+import { Grid, HStack, Stack, VStack } from "~/styled-system/jsx";
+import { LuGitMerge, LuGithub } from "@qwikest/icons/lucide";
+import {
+  SiAmazonaws,
+  SiBun,
+  SiCloudflare,
+  SiDocker,
+  SiFirebase,
+  SiGooglecloud,
+  SiMongodb,
+  SiNodedotjs,
+  SiRedux,
+} from "@qwikest/icons/simpleicons";
 
 export default component$(() => {
-  useStyles$(globalStyle);
   return (
     <>
-      <Card title={"Justin Scopelleti"} id={"intro"}>
-        <p>
-          I'm a highly motivated software developer with an interest in
-          performant apps. I have worked across the full technology stack for
-          mobile development and am currently learning web development. I am
-          always researching ways to improve my programming skills and strive to
-          make each project something I can be proud of.
+      <Card id="intro" title="Justin Scopelleti">
+        <p class={text}>
+          I'm a motivated software developer with an interest in building and
+          maintaining performant mobile and web applications. I have worked
+          across the full technology stack for mobile development (React Native,
+          AWS, Node.js) and am currently learning web development. I'm
+          specifically learning to use modern frameworks (Qwik, React) alongside
+          html and css to build interactive websites. I’ve also experimented
+          with various other technologies including Firebase, Google Cloud
+          Platform (GCP), and Docker to name a few. I am always researching ways
+          of improving my programming skills, find new interesting projects and
+          strive to make each project something I can be proud of.
         </p>
-      </Card>
-      <Card title={"About"}>
-        <p>
-          I'm a junior software developer with experience primarily developing
-          cross-platform mobile applications, and I'm currently working with web
-          development as well. For mobile development I've used React Native on
-          the front-end alongside MongoDB and Amazon Web Services (Cognito, API
-          Gateway, and Lambda) on the back-end. For web development I am
-          actively working with React.js and Typescript to create performant web
-          applications. I also have some experience working with Java, MySQL,
-          and C++. I have a particular interest in creating/optimizing
-          performant apps, and actively seek ways of improving my skills with
-          those goals in mind.
-        </p>
-        <br/>
-        <strong>Contact Information</strong>
-        <span>Justin Scopelleti</span>
-        <span>
-          <a href={"tel:+1514-754-1427"}
-             class={highlightAnchor}>514-754-1427</a>
-        </span>
-        <span>
-          <a href={"mailto:justin.scopelleti@gmail.com"}
-             class={highlightAnchor}>
+        <details class={details}>
+          <summary class={summary}>Contact Information</summary>
+          <a href="tel:+1-514-754-1427" class={link}>
+            514-754-1427
+          </a>
+          <br />
+          <a href="mailto:justin.scopelleti@gmail.com" class={link}>
             justin.scopelleti@gmail.com
           </a>
-        </span>
+          <br />
+        </details>
       </Card>
-      <Card title={"Resume"}>
-        <h2>Education</h2>
-        <h3>John Abbott College</h3>
-        <ul>
-          <li>
-            <div class={[row, gap]}>
-              Sciences Program <strong>2015 - 2017</strong>
-            </div>
-          </li>
-        </ul>
-        <h3>McGill University</h3>
-        <ul>
-          <li>
-            Major Computer Science <strong>2017 - 2022</strong>
-          </li>
-          <li>
-            Minor Physics <strong>2017 - 2019</strong>
-          </li>
-        </ul>
-        <h3>Skills</h3>
-        <Skill
-          barColor={"#2277ee"}
-          description={"3+ years - adept, use regularly (with TypeScript)"}
-          experiencePercentage={85}
-          source={"fa-brands fa-js"}
-          title={"JavaScript/TypeScript"}
-        />
-        <Skill
-          barColor={"#FFBB00"}
-          description={"2+ years - basics, use select services"}
-          experiencePercentage={70}
-          source={"fa-brands fa-aws"}
-          title={"Amazon Web Services"}
-        />
-        <Skill
-          barColor={"#559900"}
-          description={"2.5+ years - adept, use comfortably (with npm)"}
-          experiencePercentage={80}
-          source={"fa-brands fa-node"}
-          title={"NodeJS"}
-        />
-        <Skill
-          barColor={"#33DDFF"}
-          description={"2.5+ years - advanced, use frequently"}
-          experiencePercentage={90}
-          source={"fa-brands fa-react"}
-          title={"React/React Native"}
-        />
+      <Card id="education">
+        <VStack gap={"5"}>
+          <HStack class={schooling}>
+            <McGillImg class={emblem} />
+            <VStack gap={"0"} class={schoolInfo}>
+              <h2>McGill University</h2>
+              <h4>Bachelor of Science</h4>
+              <Stack class={programInfo}>
+                <p>Major Computer Science</p>
+                <b>2017 - 2022</b>
+              </Stack>
+              <Stack class={programInfo}>
+                <p>Minor Physics</p>
+                <b>2017 - 2019</b>
+              </Stack>
+            </VStack>
+          </HStack>
+          <HStack class={schooling}>
+            <JohnAbbottImg class={emblem} />
+            <VStack gap={"0"} class={schoolInfo}>
+              <h2>John Abbott College</h2>
+              <h4>Diplôme d'études Collégiales (DEC)</h4>
+              <Stack class={programInfo}>
+                <span>Sciences Program</span>
+                <b>2015 - 2017</b>
+              </Stack>
+            </VStack>
+          </HStack>
+        </VStack>
       </Card>
-      <Card title={"Projects"}>
-        <h2>Puncher</h2>
-        <p>
-          Created a simple app in React Native for tracking the hours for a
-          shift-based job. Included ability to calculate total hours worked over
-          a given period, editing incorrect punch-in/punch-out times (with a
-          visual cue to mark that it's been edited), and support for tracking
-          more than one job at once.
-        </p>
+      <Card id="skills">
+        <ul class={list}>
+          <Grid
+            gap={"4"}
+            class={css({
+              columns: {
+                smDown: "1",
+                base: "2",
+              },
+            })}
+          >
+            <li>
+              <strong>App Development: </strong>Used NodeJS + TypeScript to
+              create and maintain several Discord bot applications. Bots
+              interact with the Discord API through a library using dependency
+              injection. Some deployed in a docker container hosted on GCP,
+              others self hosted on RaspberryPi using pm2.
+            </li>
+            <li>
+              <strong>Web Development: </strong>Used React and TypeScript to
+              create multiple small web pages using proper semantic HTML and
+              efficiently styled with CSS. Contributed to, and actively use
+              Qwik; the future of web frameworks.
+            </li>
+            <li>
+              <strong>Documentation: </strong>Wrote structured, example driven,
+              and easily readable documentation on all projects I’ve worked on,
+              including for the Qwik framework.
+            </li>
+            <li>
+              <strong>Mobile Development: </strong>Used React Native and
+              TypeScript alongside many of the aforementioned tools to build
+              multiple applications for Android and iOS.
+            </li>
+            <li>
+              <strong>Tools: </strong>Git, Github, Redux, MongoDB, AWS (S3,
+              Lambda, API Gateway), Firebase, Cloudflare, Docker, GCP, NodeJS,
+              Bun.
+            </li>
+            <li>
+              <strong>Languages: </strong>Ability to communicate in english
+              fluently, both orally and written. Ability to communicate in
+              french at an intermediate level both written and orally.
+            </li>
+          </Grid>
+          <HStack mt={"5"} class={imgStack}>
+            <a href="https://git-scm.com/" class={iconLink}>
+              <LuGitMerge />
+            </a>
+            <a href="https://github.com/" class={iconLink}>
+              <LuGithub />
+            </a>
+            <a href="https://redux.js.org/" class={iconLink}>
+              <SiRedux />
+            </a>
+            <a href="https://www.mongodb.com/" class={iconLink}>
+              <SiMongodb />
+            </a>
+            <a href="https://aws.amazon.com/" class={iconLink}>
+              <SiAmazonaws />
+            </a>
+            <a href="https://firebase.google.com/" class={iconLink}>
+              <SiFirebase />
+            </a>
+            <a href="https://www.cloudflare.com/" class={iconLink}>
+              <SiCloudflare />
+            </a>
+            <a href="https://www.docker.com/" class={iconLink}>
+              <SiDocker />
+            </a>
+            <a href="https://cloud.google.com/" class={iconLink}>
+              <SiGooglecloud />
+            </a>
+            <a href="https://nodejs.org/en" class={iconLink}>
+              <SiNodedotjs />
+            </a>
+            <a href="https://bun.sh/" class={iconLink}>
+              <SiBun />
+            </a>
+          </HStack>
+        </ul>
+      </Card>
+      <Card id="projects">
         <a
-          href={"https://github.com/Kesmek/Puncher"}
-          class={"icon-link"}
-          target={"_blank"}
+          href="https://github.com/Kesmek/Puncher"
+          target="_blank"
+          class={link}
         >
-          <img
-            src={"puncher_demo.png"}
-            class={screenShot}
-            alt={"Image of Puncher app with punches included."}
-          />
+          <h2>Puncher</h2>
         </a>
-        <h2>Discord Bot(s)</h2>
         <p>
-          Created multiple discord bots for various purposes, mostly related to
-          administration and organization. Made with NodeJS, TypeScript and some
-          wrappers around the discord API. Heavily leverages the use of
-          dependency injection, and minor database utilities (modeling,
-          read/write) using Prisma.
+          An app used for locally tracking your hours for shift work. Built
+          using React Native and TypeScript for cross compatibility with iOS and
+          Android. Includes ability to track hours from multiple different
+          employers at once, managed with Redux.
         </p>
-        <div>
-          <a
-            href={"https://github.com/Kesmek/botmek"}
-            class={"icon-link"}
-            target={"_blank"}
-          >
-            <img
-              src={"botmek.png"}
-              class={screenShot}
-              alt={"Image of botmek discord bot profile."}
-            />
+        <a href="https://github.com/Kesmek/Puncher" target="_blank">
+          <PuncherDemo class={demoScreenshot} />
+        </a>
+        <h2>Discord Bots</h2>
+        <p>
+          Built and maintained several discord bots using typescript, dependency
+          injection and Docker. Hosted on google cloud platform as well as self
+          hosted on a Raspberry PI.
+        </p>
+        <HStack class={imgStack}>
+          <a href="https://github.com/Kesmek/botmek" target="_blank">
+            <BotmekDemo class={demoImg} />
           </a>
-          <a
-            href={"https://github.com/Kesmek/council-bot"}
-            class={"icon-link"}
-            target={"_blank"}
-          >
-            <img
-              src={"council-bot.png"}
-              class={screenShot}
-              alt={"Image of council-bot discord bot profile."}
-            />
+          <a href="https://github.com/Kesmek/devmek" target="_blank">
+            <DevmekDemo class={demoImg} />
           </a>
-          <a
-            href={"https://github.com/Kesmek/devmek"}
-            class={"icon-link"}
-            target={"_blank"}
-          >
-            <img
-              src={"devmek.png"}
-              class={screenShot}
-              alt={"Image of devmek discord bot profile."}
-            />
+          <a href="https://github.com/Kesmek/council-bot" target="_blank">
+            <CouncilBotDemo class={demoImg} />
           </a>
-        </div>
+        </HStack>
+        <h2>Daydream</h2>
+        <p>
+          A social media app; a mix of the live interactivity of Twitch and the
+          social aspect of Instagram. Built using React Native, JavaScript +
+          TypeScript for the frontend. The backend used AWS (S3, Lambda, API
+          Gateway, AWS SNS) with JavaScript. Made in collaboration with one
+          other developer which required regular meetings and communication. All
+          code versions were managed with Git + Github.
+        </p>
+        <HStack class={imgStack}>
+          <DaydreamDemo1 class={demoScreenshot} />
+          <DaydreamDemo2 class={demoScreenshot} />
+          <DaydreamDemo3 class={demoScreenshot} />
+        </HStack>
       </Card>
     </>
   );
+});
+
+export const head: DocumentHead = {
+  title: "Justin Scopelleti",
+  meta: [
+    {
+      name: "description",
+      content: "My portfolio website",
+    },
+  ],
+  scripts: [
+    {
+      script: `document.documentElement.setAttribute(
+      "class",
+      localStorage.getItem("theme") ??
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light")
+    );`,
+      key: "dark-light-mode",
+    },
+  ],
+};
+
+const text = css({
+  lineHeight: "loose",
+  textAlign: "center",
+});
+
+const summary = css({
+  _hover: {
+    cursor: "pointer",
+  },
+});
+
+const link = css({
+  _hover: {
+    color: "violet.500",
+  },
+});
+
+const iconLink = cx(
+  link,
+  css({
+    fontSize: "x-large",
+  }),
+);
+
+const details = css({
+  textAlign: "center",
+});
+
+const emblem = css({
+  w: "16",
+  aspectRatio: "1",
+  objectFit: "contain",
+  rounded: "xl",
+});
+
+const schoolInfo = css({
+  w: "80",
+});
+
+const schooling = css({ w: "full" });
+
+const programInfo = css({
+  w: "full",
+  justifyContent: "space-between",
+  flexDir: {
+    mdDown: "column",
+    base: "row",
+  },
+  gap: "0",
+});
+
+const list = css({
+  listStyle: "outside",
+  textAlign: "left",
+});
+
+const portrait = css({
+  my: "5",
+  aspectRatio: "portrait",
+  w: {
+    base: "64",
+    smDown: "full",
+  },
+});
+
+const demoScreenshot = cx(
+  portrait,
+  css({
+    objectFit: "contain",
+  }),
+);
+
+const demoImg = cx(
+  portrait,
+  css({
+    objectFit: "cover",
+    objectPosition: "top",
+  }),
+);
+
+const imgStack = css({
+  flexWrap: "wrap",
+  justifyContent: "center",
 });
