@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "portfolio",
-  "short_name": "Kesmek's Portfolio",
+  "name": "qwik-project-name",
+  "short_name": "Welcome to Qwik",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#444444",
-  "description": "Kesmek's Portfolio and Resume"
+  "background_color": "#fff",
+  "description": "A Qwik project app."
 }
