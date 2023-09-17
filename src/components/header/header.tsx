@@ -100,7 +100,7 @@ export default component$(() => {
             </li>
             <li>
               <a
-                href={"/public/justin-scopelleti.pdf"}
+                href={"/justin-scopelleti.pdf"}
                 download={"justin-scopelleti.pdf"}
                 class={contactLink}
               >
