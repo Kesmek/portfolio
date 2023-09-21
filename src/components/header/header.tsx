@@ -71,7 +71,11 @@ export default component$(() => {
           </ul>
           <ul class={contact}>
             <li>
-              <a href={"https://github.com/Kesmek"} class={contactLink}>
+              <a
+                href={"https://github.com/Kesmek"}
+                class={contactLink}
+                target="_blank"
+              >
                 <LuGithub />
               </a>
             </li>
@@ -81,6 +85,7 @@ export default component$(() => {
                   "https://www.linkedin.com/in/justin-scopelleti-5b023a180/"
                 }
                 class={contactLink}
+                target="_blank"
               >
                 <LuLinkedin />
               </a>
@@ -89,6 +94,7 @@ export default component$(() => {
               <a
                 href={"mailto:justin.scopelleti@gmail.com"}
                 class={contactLink}
+                target="_blank"
               >
                 <LuMail />
               </a>
@@ -126,15 +132,13 @@ const container = css({
   h: "100vh",
   pointerEvents: "none",
   color: "text",
-  smDown: {
+  mdDown: {
     alignItems: "start",
     pos: "fixed",
     w: "full",
+    p: "0",
   },
-  p: {
-    base: "5",
-    smDown: "0",
-  },
+  p: "5",
   filter: "drop-shadow(0px 0px 20px token(colors.violet.500))",
   fontSize: "xx-large",
   pos: "sticky",
@@ -169,16 +173,15 @@ const header = vstack({
   pointerEvents: "auto",
   w: "fit-content",
   overflowY: "auto",
-  smDown: {
+  mdDown: {
     maxW: "0",
     h: "100%",
     _peerChecked: {
       maxW: "full",
     },
+    rounded: "0",
   },
-  lg: {
-    borderRadius: "md",
-  },
+  rounded: "md",
   zIndex: "1",
 });
 
@@ -269,9 +272,7 @@ const contact = hstack({
 
 const toggleContainer = cx(
   css({
-    md: {
-      display: "none",
-    },
+    hideFrom: "md",
     zIndex: "1",
     transitionDuration: "slow",
     pointerEvents: "auto",
