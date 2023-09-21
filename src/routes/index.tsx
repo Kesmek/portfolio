@@ -129,37 +129,49 @@ export default component$(() => {
             </li>
           </Grid>
           <HStack mt={"5"} class={imgStack}>
-            <a href="https://git-scm.com/" class={iconLink}>
+            <a href="https://git-scm.com/" class={iconLink} target="_blank">
               <LuGitMerge />
             </a>
-            <a href="https://github.com/" class={iconLink}>
+            <a href="https://github.com/" class={iconLink} target="_blank">
               <LuGithub />
             </a>
-            <a href="https://redux.js.org/" class={iconLink}>
+            <a href="https://redux.js.org/" class={iconLink} target="_blank">
               <SiRedux />
             </a>
-            <a href="https://www.mongodb.com/" class={iconLink}>
+            <a href="https://www.mongodb.com/" class={iconLink} target="_blank">
               <SiMongodb />
             </a>
-            <a href="https://aws.amazon.com/" class={iconLink}>
+            <a href="https://aws.amazon.com/" class={iconLink} target="_blank">
               <SiAmazonaws />
             </a>
-            <a href="https://firebase.google.com/" class={iconLink}>
+            <a
+              href="https://firebase.google.com/"
+              class={iconLink}
+              target="_blank"
+            >
               <SiFirebase />
             </a>
-            <a href="https://www.cloudflare.com/" class={iconLink}>
+            <a
+              href="https://www.cloudflare.com/"
+              class={iconLink}
+              target="_blank"
+            >
               <SiCloudflare />
             </a>
-            <a href="https://www.docker.com/" class={iconLink}>
+            <a href="https://www.docker.com/" class={iconLink} target="_blank">
               <SiDocker />
             </a>
-            <a href="https://cloud.google.com/" class={iconLink}>
+            <a
+              href="https://cloud.google.com/"
+              class={iconLink}
+              target="_blank"
+            >
               <SiGooglecloud />
             </a>
-            <a href="https://nodejs.org/en" class={iconLink}>
+            <a href="https://nodejs.org/en" class={iconLink} target="_blank">
               <SiNodedotjs />
             </a>
-            <a href="https://bun.sh/" class={iconLink}>
+            <a href="https://bun.sh/" class={iconLink} target="_blank">
               <SiBun />
             </a>
           </HStack>
