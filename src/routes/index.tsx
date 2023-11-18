@@ -30,16 +30,17 @@ export default component$(() => {
     <>
       <Card id="intro" title="Justin Scopelleti">
         <p class={text}>
-          I'm a motivated software developer with an interest in building and
-          maintaining performant mobile and web applications. I have worked
-          across the full technology stack for mobile development (React Native,
-          AWS, Node.js) and am currently learning web development. I'm
-          specifically learning to use modern frameworks (Qwik, React) alongside
-          html and css to build interactive websites. I’ve also experimented
-          with various other technologies including Firebase, Google Cloud
-          Platform (GCP), and Docker to name a few. I am always researching ways
-          of improving my programming skills, find new interesting projects and
-          strive to make each project something I can be proud of.
+          I’m a motivated software developer with an interest in building and
+          maintaning performant mobile and web applications. I have worked
+          across the full technology stack for both mobile and web development.
+          Some of the technologies I’ve used on mobile include React Native,
+          AWS, Node.js, Redux and the web technologies include Qwik and React
+          alongside HTML, CSS, and Java/TypeScript to build interactive
+          websites. Other technologies I’m also gaining experience with include
+          Firebase, Google Cloud Platform (GCP), and Docker to name a few. I am
+          always searching for ways to improve my programming skills, find new
+          interesting projects and strive to make each project something that I
+          can be proud of.
         </p>
         <details class={details}>
           <summary class={summary}>Contact Information</summary>
@@ -97,20 +98,23 @@ export default component$(() => {
             <li>
               <strong>App Development: </strong>Used NodeJS + TypeScript to
               create and maintain several Discord bot applications. Bots
-              interact with the Discord API through a library using dependency
-              injection. Some deployed in a docker container hosted on GCP,
-              others self hosted on RaspberryPi using pm2.
+              interact with the Discord API through a library (DiscordX) using
+              dependency injection. Some bots were deployed in a docker
+              container hosted on GCP, others self hosted on RaspberryPi using
+              pm2.
             </li>
             <li>
               <strong>Web Development: </strong>Used React and TypeScript to
               create multiple small web pages using proper semantic HTML and
-              efficiently styled with CSS. Contributed to, and actively use
-              Qwik; the future of web frameworks.
+              efficiently styled with CSS. Also used Qwik + TypeScript alongside
+              PandaCSS (zero-runtime, type-safe CSS-in-JS) to create other small
+              pages.
             </li>
             <li>
-              <strong>Documentation: </strong>Wrote structured, example driven,
-              and easily readable documentation on all projects I’ve worked on,
-              including for the Qwik framework.
+              <strong>Documentation: </strong>Wrote structured, example driver,
+              and easily readable documentation on all projects I’ve developed,
+              including contributing to the documentation of the new Qwik
+              framework.
             </li>
             <li>
               <strong>Mobile Development: </strong>Used React Native and
@@ -121,6 +125,17 @@ export default component$(() => {
               <strong>Tools: </strong>Git, Github, Redux, MongoDB, AWS (S3,
               Lambda, API Gateway), Firebase, Cloudflare, Docker, GCP, NodeJS,
               Bun.
+            </li>
+            <li>
+              <strong>Personal Qualities: </strong>I am a very quick learner and
+              take an interest in experimenting with the latest technologies
+              including Qwik and Bun to name a few.
+            </li>
+            <li>
+              <strong>Design: </strong>Used Figma to create wireframes,
+              intermediate and final designs of websites I'm developing.
+              Ensuring proper prototyping for responsiveness (Web, Tablet,
+              Mobile designs).
             </li>
             <li>
               <strong>Languages: </strong>Ability to communicate in english
