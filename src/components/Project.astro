@@ -1,0 +1,111 @@
+---
+import Card from "@components/Card.astro";
+import type { ComponentProps } from "astro/types";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { Globe, Github } from "lucide-astro";
+
+interface Props extends ComponentProps<typeof Card> {
+  project: CollectionEntry<"projects">;
+}
+
+const { project, variant } = Astro.props;
+const proj = project.data;
+---
+
+<Card variant={variant}>
+  <Image
+    src={proj.image}
+    alt={proj.imageAlt}
+    slot={"image"}
+    class={"card-image"}
+  />
+  <div slot="content" class="card-content">
+    <h3>{proj.name}</h3>
+    <div class="link-container">
+      {
+        proj.website && (
+          <a href={proj.website} class="link" target="_blank">
+            <Globe />
+            Website
+          </a>
+        )
+      }
+      {
+        proj.github && (
+          <a href={proj.github} class="link" target="_blank">
+            <Github />
+            Github
+          </a>
+        )
+      }
+    </div>
+    <p class="work-description">{proj.description}</p>
+    <ul class="tag-list">
+      {proj.tags.map((tag) => <li class="tag">{tag}</li>)}
+    </ul>
+  </div>
+</Card>
+
+<style>
+  @layer component {
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-6);
+    }
+
+    .work-description {
+      padding-inline: var(--spacing-12);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: var(--spacing-3);
+      row-gap: var(--spacing-6);
+      background-image: linear-gradient(
+        to right in oklab,
+        var(--grass-11),
+        var(--blue-11),
+        var(--violet-11)
+      );
+      background-clip: text;
+      justify-content: center;
+      margin-block-start: var(--spacing-8);
+    }
+
+    .tag {
+      border: 3px solid var(--blue-7);
+      color: transparent;
+      padding-inline: var(--spacing-6);
+      padding-block: var(--spacing-4);
+      border-radius: var(--border-radius-full);
+      font-weight: bold;
+    }
+
+    .link-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .link {
+      display: flex;
+      gap: var(--spacing-3);
+      align-items: center;
+      width: fit-content;
+      font-size: var(--font-size-4);
+      font-weight: bold;
+      transition: color 150ms ease;
+
+      &:hover {
+        color: var(--violet-11);
+      }
+    }
+  }
+
+  .card-image {
+    border-radius: var(--border-radius-lg);
+    aspect-ratio: 4 / 3;
+  }
+</style>

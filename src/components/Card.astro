@@ -1,0 +1,75 @@
+---
+interface Props {
+  variant?: "default" | "reversed";
+}
+
+const { variant = "default" } = Astro.props;
+const cardClasses = `card ${variant === "reversed" ? "card-reversed" : ""}`;
+const contentClasses = `card-content ${variant === "reversed" ? "content-reversed" : ""}`;
+---
+
+<div class="card-container">
+  <div class={cardClasses}>
+    <div class="card-image">
+      <slot name="image" />
+    </div>
+    <div class={contentClasses}>
+      <slot name="content" />
+    </div>
+  </div>
+</div>
+
+<style>
+  @layer components {
+    .card-container {
+      container-type: inline-size;
+      width: 100%;
+      height: 100%;
+      justify-items: center;
+      align-content: center;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "image"
+        "content";
+      gap: var(--spacing-16);
+    }
+
+    .card-image {
+      grid-area: image;
+      justify-items: center;
+    }
+
+    .card-content {
+      grid-area: content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .content {
+      align-content: center;
+    }
+
+    @container (width > 56rem) {
+      .card {
+        grid-template-columns: 45% 1fr;
+        grid-template-areas: "image content";
+      }
+
+      .card-reversed {
+        grid-template-columns: 1fr 45%;
+        grid-template-areas: "content image";
+      }
+
+      .card-image {
+        border-top-right-radius: var(--border-radius-lg);
+        border-bottom-right-radius: var(--border-radius-lg);
+      }
+    }
+  }
+</style>

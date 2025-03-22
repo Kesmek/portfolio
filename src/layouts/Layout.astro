@@ -1,0 +1,28 @@
+---
+import "../style/global.css";
+import "../style/tokens.css";
+import Header from "@components/Header.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Justin Scopelleti</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    background: var(--bg-gradient);
+    min-height: 100dvh;
+  }
+</style>

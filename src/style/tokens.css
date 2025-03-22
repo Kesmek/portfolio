@@ -1,0 +1,653 @@
+@layer tokens {
+  :root {
+    /* spacing variables */
+    --spacing-0: 0rem;
+    --spacing-1: 0.125rem;
+    --spacing-2: 0.25rem;
+    --spacing-3: 0.375rem;
+    --spacing-4: 0.5rem;
+    --spacing-5: 0.625rem;
+    --spacing-6: 0.75rem;
+    --spacing-7: 0.875rem;
+    --spacing-8: 1rem;
+    --spacing-10: 1.25rem;
+    --spacing-12: 1.5rem;
+    --spacing-14: 1.75rem;
+    --spacing-16: 2rem;
+    --spacing-18: 2.25rem;
+    --spacing-20: 2.5rem;
+    --spacing-22: 2.75rem;
+    --spacing-24: 3rem;
+    --spacing-28: 3.5rem;
+    --spacing-32: 4rem;
+    --spacing-40: 5rem;
+    --spacing-48: 6rem;
+    --spacing-56: 7rem;
+    --spacing-64: 8rem;
+    --spacing-72: 9rem;
+    --spacing-80: 10rem;
+    --spacing-88: 11rem;
+    --spacing-96: 12rem;
+    --spacing-104: 13rem;
+    --spacing-112: 14rem;
+    --spacing-120: 15rem;
+    --spacing-128: 16rem;
+    --spacing-144: 18rem;
+    --spacing-160: 20rem;
+    --spacing-192: 24rem;
+
+    /* sizing variables */
+    --sizing-0: var(--spacing-0);
+    --sizing-1: var(--spacing-1);
+    --sizing-2: var(--spacing-2);
+    --sizing-3: var(--spacing-3);
+    --sizing-4: var(--spacing-4);
+    --sizing-5: var(--spacing-5);
+    --sizing-6: var(--spacing-6);
+    --sizing-7: var(--spacing-7);
+    --sizing-8: var(--spacing-8);
+    --sizing-10: var(--spacing-10);
+    --sizing-12: var(--spacing-12);
+    --sizing-14: var(--spacing-14);
+    --sizing-16: var(--spacing-16);
+    --sizing-18: var(--spacing-18);
+    --sizing-20: var(--spacing-20);
+    --sizing-22: var(--spacing-22);
+    --sizing-24: var(--spacing-24);
+    --sizing-28: var(--spacing-28);
+    --sizing-32: var(--spacing-32);
+    --sizing-40: var(--spacing-40);
+    --sizing-48: var(--spacing-48);
+    --sizing-56: var(--spacing-56);
+    --sizing-64: var(--spacing-64);
+    --sizing-72: var(--spacing-72);
+    --sizing-80: var(--spacing-80);
+    --sizing-88: var(--spacing-88);
+    --sizing-96: var(--spacing-96);
+    --sizing-104: var(--spacing-104);
+    --sizing-112: var(--spacing-112);
+    --sizing-120: var(--spacing-120);
+    --sizing-128: var(--spacing-128);
+    --sizing-144: var(--spacing-144);
+    --sizing-160: var(--spacing-160);
+    --sizing-192: var(--spacing-192);
+    --sizing-xs: var(--spacing-160);
+    --sizing-sm: var(--spacing-192);
+    --sizing-md: 28rem;
+    --sizing-lg: 32rem;
+    --sizing-xl: 36rem;
+    --sizing-2xl: 40rem;
+    --sizing-3xl: 48rem;
+    --sizing-4xl: 56rem;
+    --sizing-5xl: 64rem;
+    --sizing-6xl: 72rem;
+    --sizing-7xl: 80rem;
+    --sizing-8xl: 90rem;
+    --sizing-full: 100%;
+
+    /* border radius variables */
+    --border-radius-xs: 0.125rem;
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.375rem;
+    --border-radius-lg: 0.5rem;
+    --border-radius-xl: 0.75rem;
+    --border-radius-2xl: 1rem;
+    --border-radius-3xl: 1.5rem;
+    --border-radius-4xl: 2rem;
+    --border-radius-full: 9999px;
+
+    /* border width variables */
+    --border-width-hairline: 0.0625rem;
+    --border-width-thin: 0.125rem;
+    --border-width-normal: 0.1875rem;
+    --border-width-thick: 0.25rem;
+    --border-width-extra-thick: 0.375rem;
+
+    /* font size variables */
+    --font-size-00: 0.5rem;
+    --font-size-0: 0.75rem;
+    --font-size-1: 1rem;
+    --font-size-2: 1.125rem;
+    --font-size-3: 1.25rem;
+    --font-size-4: 1.5rem;
+    --font-size-5: 2rem;
+    --font-size-6: 2.5rem;
+    --font-size-7: 3rem;
+    --font-size-8: 4rem;
+
+    --font-size-fluid-0: clamp(var(--font-size-0), 2vw, var(--font-size-1));
+    --font-size-fluid-1: clamp(var(--font-size-1), 3vw, var(--font-size-4));
+    --font-size-fluid-2: clamp(var(--font-size-3), 4vw, var(--font-size-5));
+    --font-size-fluid-3: clamp(var(--font-size-4), 6vw, var(--font-size-7));
+    --font-size-fluid-4: clamp(var(--font-size-5), 9vw, var(--font-size-8));
+
+    /* color variables */
+    --gray-light-1: #fcfcfc;
+    --gray-light-2: #f9f9f9;
+    --gray-light-3: #f0f0f0;
+    --gray-light-4: #e8e8e8;
+    --gray-light-5: #e0e0e0;
+    --gray-light-6: #d9d9d9;
+    --gray-light-7: #cecece;
+    --gray-light-8: #bbbbbb;
+    --gray-light-9: #8d8d8d;
+    --gray-light-10: #838383;
+    --gray-light-11: #646464;
+    --gray-light-12: #202020;
+
+    --gray-dark-1: #111111;
+    --gray-dark-2: #191919;
+    --gray-dark-3: #222222;
+    --gray-dark-4: #2a2a2a;
+    --gray-dark-5: #313131;
+    --gray-dark-6: #3a3a3a;
+    --gray-dark-7: #484848;
+    --gray-dark-8: #606060;
+    --gray-dark-9: #6e6e6e;
+    --gray-dark-10: #7b7b7b;
+    --gray-dark-11: #b4b4b4;
+    --gray-dark-12: #eeeeee;
+
+    --amber-light-1: #fefdfb;
+    --amber-light-2: #fefbe9;
+    --amber-light-3: #fff7c2;
+    --amber-light-4: #ffee9c;
+    --amber-light-5: #fbe577;
+    --amber-light-6: #f3d673;
+    --amber-light-7: #e9c162;
+    --amber-light-8: #e2a336;
+    --amber-light-9: #ffc53d;
+    --amber-light-10: #ffba18;
+    --amber-light-11: #ab6400;
+    --amber-light-12: #4f3422;
+
+    --amber-dark-1: #16120c;
+    --amber-dark-2: #1d180f;
+    --amber-dark-3: #302008;
+    --amber-dark-4: #3f2700;
+    --amber-dark-5: #4d3000;
+    --amber-dark-6: #5c3d05;
+    --amber-dark-7: #714f19;
+    --amber-dark-8: #8f6424;
+    --amber-dark-9: #ffc53d;
+    --amber-dark-10: #ffd60a;
+    --amber-dark-11: #ffca16;
+    --amber-dark-12: #ffe7b3;
+
+    --red-light-1: #fffcfc;
+    --red-light-2: #fff7f7;
+    --red-light-3: #feebec;
+    --red-light-4: #ffdbdc;
+    --red-light-5: #ffcdce;
+    --red-light-6: #fdbdbe;
+    --red-light-7: #f4a9aa;
+    --red-light-8: #eb8e90;
+    --red-light-9: #e5484d;
+    --red-light-10: #dc3e42;
+    --red-light-11: #ce2c31;
+    --red-light-12: #641723;
+
+    --red-dark-1: #191111;
+    --red-dark-2: #201314;
+    --red-dark-3: #3b1219;
+    --red-dark-4: #500f1c;
+    --red-dark-5: #611623;
+    --red-dark-6: #72232d;
+    --red-dark-7: #8c333a;
+    --red-dark-8: #b54548;
+    --red-dark-9: #e5484d;
+    --red-dark-10: #ec5d5e;
+    --red-dark-11: #ff9592;
+    --red-dark-12: #ffd1d9;
+
+    --violet-light-1: #fdfcfe;
+    --violet-light-2: #faf8ff;
+    --violet-light-3: #f4f0fe;
+    --violet-light-4: #ebe4ff;
+    --violet-light-5: #e1d9ff;
+    --violet-light-6: #d4cafe;
+    --violet-light-7: #c2b5f5;
+    --violet-light-8: #aa99ec;
+    --violet-light-9: #6e56cf;
+    --violet-light-10: #654dc4;
+    --violet-light-11: #6550b9;
+    --violet-light-12: #2f265f;
+
+    --violet-dark-1: #14121f;
+    --violet-dark-2: #1b1525;
+    --violet-dark-3: #291f43;
+    --violet-dark-4: #33255b;
+    --violet-dark-5: #3c2e69;
+    --violet-dark-6: #473876;
+    --violet-dark-7: #56468b;
+    --violet-dark-8: #6958ad;
+    --violet-dark-9: #6e56cf;
+    --violet-dark-10: #7d66d9;
+    --violet-dark-11: #baa7ff;
+    --violet-dark-12: #e2ddfe;
+
+    --blue-light-1: #fbfdff;
+    --blue-light-2: #f4faff;
+    --blue-light-3: #e6f4fe;
+    --blue-light-4: #d5efff;
+    --blue-light-5: #c2e5ff;
+    --blue-light-6: #acd8fc;
+    --blue-light-7: #8ec8f6;
+    --blue-light-8: #5eb1ef;
+    --blue-light-9: #0090ff;
+    --blue-light-10: #0588f0;
+    --blue-light-11: #0d74ce;
+    --blue-light-12: #113264;
+
+    --blue-dark-1: #0d1520;
+    --blue-dark-2: #111927;
+    --blue-dark-3: #0d2847;
+    --blue-dark-4: #003362;
+    --blue-dark-5: #004074;
+    --blue-dark-6: #104d87;
+    --blue-dark-7: #205d9e;
+    --blue-dark-8: #2870bd;
+    --blue-dark-9: #0090ff;
+    --blue-dark-10: #3b9eff;
+    --blue-dark-11: #70b8ff;
+    --blue-dark-12: #c2e6ff;
+
+    --grass-light-1: #fbfefb;
+    --grass-light-2: #f5fbf5;
+    --grass-light-3: #e9f6e9;
+    --grass-light-4: #daf1db;
+    --grass-light-5: #c9e8ca;
+    --grass-light-6: #b2ddb5;
+    --grass-light-7: #94ce9a;
+    --grass-light-8: #65ba74;
+    --grass-light-9: #46a758;
+    --grass-light-10: #3e9b4f;
+    --grass-light-11: #2a7e3b;
+    --grass-light-12: #203c25;
+
+    --grass-dark-1: #0e1511;
+    --grass-dark-2: #141a15;
+    --grass-dark-3: #1b2a1e;
+    --grass-dark-4: #1d3a24;
+    --grass-dark-5: #25482d;
+    --grass-dark-6: #2d5736;
+    --grass-dark-7: #366740;
+    --grass-dark-8: #3e7949;
+    --grass-dark-9: #46a758;
+    --grass-dark-10: #53b365;
+    --grass-dark-11: #71d083;
+    --grass-dark-12: #c2f0c2;
+
+    --mint-light-1: #f9fefd;
+    --mint-light-2: #f2fbf9;
+    --mint-light-3: #ddf9f2;
+    --mint-light-4: #c8f4e9;
+    --mint-light-5: #b3ecde;
+    --mint-light-6: #9ce0d0;
+    --mint-light-7: #7ecfbd;
+    --mint-light-8: #4cbba5;
+    --mint-light-9: #86ead4;
+    --mint-light-10: #7de0cb;
+    --mint-light-11: #027864;
+    --mint-light-12: #16433c;
+
+    --mint-dark-1: #0e1515;
+    --mint-dark-2: #0f1b1b;
+    --mint-dark-3: #092c2b;
+    --mint-dark-4: #003a38;
+    --mint-dark-5: #004744;
+    --mint-dark-6: #105650;
+    --mint-dark-7: #1e685f;
+    --mint-dark-8: #277f70;
+    --mint-dark-9: #86ead4;
+    --mint-dark-10: #a8f5e5;
+    --mint-dark-11: #58d5ba;
+    --mint-dark-12: #c4f5e1;
+
+    --gray-1: light-dark(
+      oklch(from var(--gray-light-1) l c h),
+      oklch(from var(--gray-dark-1) l c h)
+    );
+    --gray-2: light-dark(
+      oklch(from var(--gray-light-2) l c h),
+      oklch(from var(--gray-dark-2) l c h)
+    );
+    --gray-3: light-dark(
+      oklch(from var(--gray-light-3) l c h),
+      oklch(from var(--gray-dark-3) l c h)
+    );
+    --gray-4: light-dark(
+      oklch(from var(--gray-light-4) l c h),
+      oklch(from var(--gray-dark-4) l c h)
+    );
+    --gray-5: light-dark(
+      oklch(from var(--gray-light-5) l c h),
+      oklch(from var(--gray-dark-5) l c h)
+    );
+    --gray-6: light-dark(
+      oklch(from var(--gray-light-6) l c h),
+      oklch(from var(--gray-dark-6) l c h)
+    );
+    --gray-7: light-dark(
+      oklch(from var(--gray-light-7) l c h),
+      oklch(from var(--gray-dark-7) l c h)
+    );
+    --gray-8: light-dark(
+      oklch(from var(--gray-light-8) l c h),
+      oklch(from var(--gray-dark-8) l c h)
+    );
+    --gray-9: light-dark(
+      oklch(from var(--gray-light-9) l c h),
+      oklch(from var(--gray-dark-9) l c h)
+    );
+    --gray-10: light-dark(
+      oklch(from var(--gray-light-10) l c h),
+      oklch(from var(--gray-dark-10) l c h)
+    );
+    --gray-11: light-dark(
+      oklch(from var(--gray-light-11) l c h),
+      oklch(from var(--gray-dark-11) l c h)
+    );
+    --gray-12: light-dark(
+      oklch(from var(--gray-light-12) l c h),
+      oklch(from var(--gray-dark-12) l c h)
+    );
+
+    --amber-1: light-dark(
+      oklch(from var(--amber-light-1) l c h),
+      oklch(from var(--amber-dark-1) l c h)
+    );
+    --amber-2: light-dark(
+      oklch(from var(--amber-light-2) l c h),
+      oklch(from var(--amber-dark-2) l c h)
+    );
+    --amber-3: light-dark(
+      oklch(from var(--amber-light-3) l c h),
+      oklch(from var(--amber-dark-3) l c h)
+    );
+    --amber-4: light-dark(
+      oklch(from var(--amber-light-4) l c h),
+      oklch(from var(--amber-dark-4) l c h)
+    );
+    --amber-5: light-dark(
+      oklch(from var(--amber-light-5) l c h),
+      oklch(from var(--amber-dark-5) l c h)
+    );
+    --amber-6: light-dark(
+      oklch(from var(--amber-light-6) l c h),
+      oklch(from var(--amber-dark-6) l c h)
+    );
+    --amber-7: light-dark(
+      oklch(from var(--amber-light-7) l c h),
+      oklch(from var(--amber-dark-7) l c h)
+    );
+    --amber-8: light-dark(
+      oklch(from var(--amber-light-8) l c h),
+      oklch(from var(--amber-dark-8) l c h)
+    );
+    --amber-9: light-dark(
+      oklch(from var(--amber-light-9) l c h),
+      oklch(from var(--amber-dark-9) l c h)
+    );
+    --amber-10: light-dark(
+      oklch(from var(--amber-light-10) l c h),
+      oklch(from var(--amber-dark-10) l c h)
+    );
+    --amber-11: light-dark(
+      oklch(from var(--amber-light-11) l c h),
+      oklch(from var(--amber-dark-11) l c h)
+    );
+    --amber-12: light-dark(
+      oklch(from var(--amber-light-12) l c h),
+      oklch(from var(--amber-dark-12) l c h)
+    );
+
+    --red-1: light-dark(
+      oklch(from var(--red-light-1) l c h),
+      oklch(from var(--red-dark-1) l c h)
+    );
+    --red-2: light-dark(
+      oklch(from var(--red-light-2) l c h),
+      oklch(from var(--red-dark-2) l c h)
+    );
+    --red-3: light-dark(
+      oklch(from var(--red-light-3) l c h),
+      oklch(from var(--red-dark-3) l c h)
+    );
+    --red-4: light-dark(
+      oklch(from var(--red-light-4) l c h),
+      oklch(from var(--red-dark-4) l c h)
+    );
+    --red-5: light-dark(
+      oklch(from var(--red-light-5) l c h),
+      oklch(from var(--red-dark-5) l c h)
+    );
+    --red-6: light-dark(
+      oklch(from var(--red-light-6) l c h),
+      oklch(from var(--red-dark-6) l c h)
+    );
+    --red-7: light-dark(
+      oklch(from var(--red-light-7) l c h),
+      oklch(from var(--red-dark-7) l c h)
+    );
+    --red-8: light-dark(
+      oklch(from var(--red-light-8) l c h),
+      oklch(from var(--red-dark-8) l c h)
+    );
+    --red-9: light-dark(
+      oklch(from var(--red-light-9) l c h),
+      oklch(from var(--red-dark-9) l c h)
+    );
+    --red-10: light-dark(
+      oklch(from var(--red-light-10) l c h),
+      oklch(from var(--red-dark-10) l c h)
+    );
+    --red-11: light-dark(
+      oklch(from var(--red-light-11) l c h),
+      oklch(from var(--red-dark-11) l c h)
+    );
+    --red-12: light-dark(
+      oklch(from var(--red-light-12) l c h),
+      oklch(from var(--red-dark-12) l c h)
+    );
+
+    --violet-1: light-dark(
+      oklch(from var(--violet-light-1) l c h),
+      oklch(from var(--violet-dark-1) l c h)
+    );
+    --violet-2: light-dark(
+      oklch(from var(--violet-light-2) l c h),
+      oklch(from var(--violet-dark-2) l c h)
+    );
+    --violet-3: light-dark(
+      oklch(from var(--violet-light-3) l c h),
+      oklch(from var(--violet-dark-3) l c h)
+    );
+    --violet-4: light-dark(
+      oklch(from var(--violet-light-4) l c h),
+      oklch(from var(--violet-dark-4) l c h)
+    );
+    --violet-5: light-dark(
+      oklch(from var(--violet-light-5) l c h),
+      oklch(from var(--violet-dark-5) l c h)
+    );
+    --violet-6: light-dark(
+      oklch(from var(--violet-light-6) l c h),
+      oklch(from var(--violet-dark-6) l c h)
+    );
+    --violet-7: light-dark(
+      oklch(from var(--violet-light-7) l c h),
+      oklch(from var(--violet-dark-7) l c h)
+    );
+    --violet-8: light-dark(
+      oklch(from var(--violet-light-8) l c h),
+      oklch(from var(--violet-dark-8) l c h)
+    );
+    --violet-9: light-dark(
+      oklch(from var(--violet-light-9) l c h),
+      oklch(from var(--violet-dark-9) l c h)
+    );
+    --violet-10: light-dark(
+      oklch(from var(--violet-light-10) l c h),
+      oklch(from var(--violet-dark-10) l c h)
+    );
+    --violet-11: light-dark(
+      oklch(from var(--violet-light-11) l c h),
+      oklch(from var(--violet-dark-11) l c h)
+    );
+    --violet-12: light-dark(
+      oklch(from var(--violet-light-12) l c h),
+      oklch(from var(--violet-dark-12) l c h)
+    );
+
+    --blue-1: light-dark(
+      oklch(from var(--blue-light-1) l c h),
+      oklch(from var(--blue-dark-1) l c h)
+    );
+    --blue-2: light-dark(
+      oklch(from var(--blue-light-2) l c h),
+      oklch(from var(--blue-dark-2) l c h)
+    );
+    --blue-3: light-dark(
+      oklch(from var(--blue-light-3) l c h),
+      oklch(from var(--blue-dark-3) l c h)
+    );
+    --blue-4: light-dark(
+      oklch(from var(--blue-light-4) l c h),
+      oklch(from var(--blue-dark-4) l c h)
+    );
+    --blue-5: light-dark(
+      oklch(from var(--blue-light-5) l c h),
+      oklch(from var(--blue-dark-5) l c h)
+    );
+    --blue-6: light-dark(
+      oklch(from var(--blue-light-6) l c h),
+      oklch(from var(--blue-dark-6) l c h)
+    );
+    --blue-7: light-dark(
+      oklch(from var(--blue-light-7) l c h),
+      oklch(from var(--blue-dark-7) l c h)
+    );
+    --blue-8: light-dark(
+      oklch(from var(--blue-light-8) l c h),
+      oklch(from var(--blue-dark-8) l c h)
+    );
+    --blue-9: light-dark(
+      oklch(from var(--blue-light-9) l c h),
+      oklch(from var(--blue-dark-9) l c h)
+    );
+    --blue-10: light-dark(
+      oklch(from var(--blue-light-10) l c h),
+      oklch(from var(--blue-dark-10) l c h)
+    );
+    --blue-11: light-dark(
+      oklch(from var(--blue-light-11) l c h),
+      oklch(from var(--blue-dark-11) l c h)
+    );
+    --blue-12: light-dark(
+      oklch(from var(--blue-light-12) l c h),
+      oklch(from var(--blue-dark-12) l c h)
+    );
+
+    --grass-1: light-dark(
+      oklch(from var(--grass-light-1) l c h),
+      oklch(from var(--grass-dark-1) l c h)
+    );
+    --grass-2: light-dark(
+      oklch(from var(--grass-light-2) l c h),
+      oklch(from var(--grass-dark-2) l c h)
+    );
+    --grass-3: light-dark(
+      oklch(from var(--grass-light-3) l c h),
+      oklch(from var(--grass-dark-3) l c h)
+    );
+    --grass-4: light-dark(
+      oklch(from var(--grass-light-4) l c h),
+      oklch(from var(--grass-dark-4) l c h)
+    );
+    --grass-5: light-dark(
+      oklch(from var(--grass-light-5) l c h),
+      oklch(from var(--grass-dark-5) l c h)
+    );
+    --grass-6: light-dark(
+      oklch(from var(--grass-light-6) l c h),
+      oklch(from var(--grass-dark-6) l c h)
+    );
+    --grass-7: light-dark(
+      oklch(from var(--grass-light-7) l c h),
+      oklch(from var(--grass-dark-7) l c h)
+    );
+    --grass-8: light-dark(
+      oklch(from var(--grass-light-8) l c h),
+      oklch(from var(--grass-dark-8) l c h)
+    );
+    --grass-9: light-dark(
+      oklch(from var(--grass-light-9) l c h),
+      oklch(from var(--grass-dark-9) l c h)
+    );
+    --grass-10: light-dark(
+      oklch(from var(--grass-light-10) l c h),
+      oklch(from var(--grass-dark-10) l c h)
+    );
+    --grass-11: light-dark(
+      oklch(from var(--grass-light-11) l c h),
+      oklch(from var(--grass-dark-11) l c h)
+    );
+    --grass-12: light-dark(
+      oklch(from var(--grass-light-12) l c h),
+      oklch(from var(--grass-dark-12) l c h)
+    );
+
+    --mint-1: light-dark(
+      oklch(from var(--mint-light-1) l c h),
+      oklch(from var(--mint-dark-1) l c h)
+    );
+    --mint-2: light-dark(
+      oklch(from var(--mint-light-2) l c h),
+      oklch(from var(--mint-dark-2) l c h)
+    );
+    --mint-3: light-dark(
+      oklch(from var(--mint-light-3) l c h),
+      oklch(from var(--mint-dark-3) l c h)
+    );
+    --mint-4: light-dark(
+      oklch(from var(--mint-light-4) l c h),
+      oklch(from var(--mint-dark-4) l c h)
+    );
+    --mint-5: light-dark(
+      oklch(from var(--mint-light-5) l c h),
+      oklch(from var(--mint-dark-5) l c h)
+    );
+    --mint-6: light-dark(
+      oklch(from var(--mint-light-6) l c h),
+      oklch(from var(--mint-dark-6) l c h)
+    );
+    --mint-7: light-dark(
+      oklch(from var(--mint-light-7) l c h),
+      oklch(from var(--mint-dark-7) l c h)
+    );
+    --mint-8: light-dark(
+      oklch(from var(--mint-light-8) l c h),
+      oklch(from var(--mint-dark-8) l c h)
+    );
+    --mint-9: light-dark(
+      oklch(from var(--mint-light-9) l c h),
+      oklch(from var(--mint-dark-9) l c h)
+    );
+    --mint-10: light-dark(
+      oklch(from var(--mint-light-10) l c h),
+      oklch(from var(--mint-dark-10) l c h)
+    );
+    --mint-11: light-dark(
+      oklch(from var(--mint-light-11) l c h),
+      oklch(from var(--mint-dark-11) l c h)
+    );
+    --mint-12: light-dark(
+      oklch(from var(--mint-light-12) l c h),
+      oklch(from var(--mint-dark-12) l c h)
+    );
+
+    --text: light-dark(oklch(0% 0 0), oklch(100% 0 0));
+    --text-light: light-dark(oklch(100% 0 0), oklch(0% 0 0));
+  }
+}

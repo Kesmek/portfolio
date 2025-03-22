@@ -1,0 +1,71 @@
+---
+import type { Polymorphic } from "astro/types";
+
+type Props<Tag extends "a" | "button"> = Polymorphic<{ as: Tag }> & {
+  variant?: "gradient" | "default";
+};
+
+const { as: Tag, variant, ...props } = Astro.props;
+const variantClass = `${variant === "gradient" ? "gradient" : ""}`;
+const className = props.class;
+---
+
+<Tag {...props} class:list={["link", variantClass, className]}>
+  <slot name="icon" />
+  <slot />
+</Tag>
+
+<style>
+  @layer components {
+    .link {
+      display: flex;
+      gap: var(--spacing-4);
+      max-inline-size: var(--sizing-120);
+      min-inline-size: var(--sizing-88);
+      justify-content: center;
+      padding-inline: var(--spacing-12);
+      padding-block: var(--spacing-8);
+      border-radius: var(--border-radius-full);
+      background-color: var(--btn-color-base);
+      border: solid var(--border-width-thin) var(--btn-border-color);
+      transition: all 250ms ease;
+      text-align: center;
+      font-weight: bold;
+      color: var(--btn-text-color);
+      text-wrap: nowrap;
+
+      &:hover,
+      &:focus-visible {
+        border-color: var(--btn-border-color-hover);
+        background-color: var(--btn-color-hover);
+        scale: 1.05;
+      }
+
+      &:active {
+        scale: 1.03;
+        background-color: var(--btn-color-active);
+      }
+    }
+
+    .gradient {
+      background: linear-gradient(
+        in oklab,
+        var(--btn-color-background),
+        var(--btn-color-hover)
+      );
+
+      &:hover,
+      &:focus-visible {
+        box-shadow: 0px 0px 5px 0px var(--btn-border-color-hover);
+      }
+
+      &:active {
+        background: linear-gradient(
+          in oklab,
+          var(--btn-color-base),
+          var(--btn-color-active)
+        );
+      }
+    }
+  }
+</style>

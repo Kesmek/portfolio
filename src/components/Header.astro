@@ -1,0 +1,50 @@
+---
+import Link from "./Link.astro";
+---
+
+<header>
+  <nav>
+    <ul>
+      <li>
+        <Link as="a" href="/" class="header-link">Home</Link>
+      </li>
+      <li>
+        <Link as="a" href="/about" class="header-link">About</Link>
+      </li>
+      <li>
+        <Link as="a" href="/projects" class="header-link">Projects</Link>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  @layer components {
+    header {
+      display: flex;
+      position: fixed;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    ul {
+      display: flex;
+      gap: var(--spacing-3);
+      background-color: color-mix(in srgb, var(--gray-2) 40%, transparent);
+      backdrop-filter: blur(2px);
+      padding: var(--spacing-2);
+      margin-block-start: var(--spacing-4);
+      border-radius: var(--border-radius-full);
+    }
+
+    li {
+      display: flex;
+    }
+
+    .header-link {
+      min-inline-size: var(--sizing-72);
+      padding-block: var(--sizing-6);
+    }
+  }
+</style>

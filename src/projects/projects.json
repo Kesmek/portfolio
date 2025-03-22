@@ -1,0 +1,37 @@
+[
+  {
+    "id": "elmridge-website",
+    "name": "Elm Ridge Country Club",
+    "image": "src/assets/elmridge-website.png",
+    "imageAlt": "Elm Ridge home page",
+    "description": "Led a comprehensive overhaul of Elm Ridge Country Club's digital presence by architecting a modern, responsive frontend while leveraging their existing Joomla CMS backend. Implemented custom CSS Grid layouts and flexbox layouts to dramatically improve UI/UX without necessitating platform migration.",
+    "tags": ["Joomla", "CSS", "Figma"],
+    "website": "https://www.elmridgecc.com/index.php?lang=en"
+  },
+  {
+    "id": "shiftly",
+    "name": "Shiftly",
+    "image": "src/assets/shiftly.png",
+    "imageAlt": "Various screens of the shiftly application",
+    "description": "Developed a mobile application that streamlines time tracking for service workers with precise shift management, break calculations, and overtime monitoring. The interface features an intuitive dark-themed design with color-coded indicators, and comprehensive analytics that track both daily and weekly hours. The responsive UI prioritizes clarity and efficiency for professionals managing their work schedules on the go.",
+    "tags": ["TypeScript", "SQLite", "React Native", "Expo", "Figma"],
+    "github": "https://github.com/Kesmek/puncher"
+  },
+  {
+    "id": "discord-bots",
+    "name": "Discord Bots",
+    "image": "src/assets/discord-bots.png",
+    "imageAlt": "Various discord bot profiles developed by myself",
+    "description": "Architected and deployed high-performance Discord bots using TypeScript with advanced design patterns including dependency injection for maximum scalability. Implemented containerized deployment via Docker, leveraging both Google Cloud Platform for production reliability and a custom-configured Raspberry Pi server for edge computing capabilities and cost optimization.",
+    "tags": ["Discord API", "Prisma", "SQLite", "TypeScript"],
+    "github": "https://github.com/Kesmek/council-bot"
+  },
+  {
+    "id": "daydream",
+    "name": "Daydream",
+    "image": "src/assets/daydream.png",
+    "imageAlt": "Various screens of the daydream application",
+    "description": "Engineered a cutting-edge social media platform that seamlessly blends Twitch's real-time engagement capabilities with Instagram's social connectivity features. Architected a cross-platform mobile experience using React Native with a hybrid TypeScript/JavaScript codebase for type safety and performance optimization. Implemented a serverless microservices architecture leveraging AWS's cloud ecosystem, including S3 for media storage, Lambda for event-driven processing, API Gateway for RESTful endpoints, and SNS for real-time notifications.",
+    "tags": ["AWS", "RESTful", "React Native", "TypeScript", "Serverless"]
+  }
+]
