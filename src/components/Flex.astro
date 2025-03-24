@@ -1,0 +1,36 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag;
+  direction?: "row" | "column";
+}>;
+
+const {
+  as: Tag = "div",
+  direction = "row",
+  class: className,
+  ...props
+} = Astro.props;
+---
+
+<Tag
+  {...props}
+  class:list={["flex", direction && `flex-${direction}`, className]}
+>
+  <slot />
+</Tag>
+
+<style>
+  @layer components {
+    .flex {
+      display: flex;
+      flex-direction: row;
+      gap: var(--spacing-4);
+    }
+
+    .flex-column {
+      flex-direction: column;
+    }
+  }
+</style>
