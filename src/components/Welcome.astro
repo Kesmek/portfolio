@@ -115,13 +115,6 @@ const projects = await getCollection("projects");
       gap: clamp(var(--spacing-8), 3dvw, var(--spacing-16));
     }
 
-    .profile-pic {
-      border-radius: var(--border-radius-full);
-      box-shadow: 0px 0px 10px 0px var(--violet-9);
-      aspect-ratio: 1 !important;
-      max-inline-size: min(var(--sizing-lg), 100%) !important;
-    }
-
     p {
       max-inline-size: 80ch;
     }
@@ -135,74 +128,9 @@ const projects = await getCollection("projects");
       gap: clamp(var(--spacing-4), 3dvw, var(--spacing-16));
     }
 
-    .button {
-      display: flex;
-      gap: var(--spacing-4);
-      max-inline-size: var(--sizing-120);
-      min-inline-size: var(--sizing-88);
-      justify-content: center;
-      padding-inline: var(--spacing-12);
-      padding-block: var(--spacing-8);
-      border-radius: var(--border-radius-full);
-      background: linear-gradient(in oklab, var(--violet-2), var(--violet-4));
-      border: solid var(--border-width-thin) var(--violet-7);
-      transition: all 250ms ease;
-      text-align: center;
-      font-weight: bold;
-      color: var(--violet-12);
-      text-wrap: nowrap;
-
-      &:hover,
-      &:focus-visible {
-        border-color: var(--violet-8);
-        box-shadow: 0px 0px 5px 0px var(--violet-9);
-        scale: 1.05;
-      }
-
-      &:active {
-        scale: 1.03;
-        background: linear-gradient(in oklab, var(--violet-3), var(--violet-5));
-      }
-    }
-
-    .tag {
-      border: 3px solid var(--blue-7);
-      color: transparent;
-      padding-inline: var(--spacing-6);
-      padding-block: var(--spacing-2);
-      border-radius: var(--border-radius-full);
-      font-weight: bold;
-    }
-
-    .card-content {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-6);
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: var(--spacing-3);
-      row-gap: var(--spacing-6);
-      background-image: linear-gradient(
-        to right in oklab,
-        var(--grass-11),
-        var(--blue-11),
-        var(--violet-11)
-      );
-      background-clip: text;
-      justify-content: center;
-      margin-block-start: var(--spacing-8);
-    }
-
     .works {
       gap: var(--spacing-12);
       padding-inline: 0;
-    }
-
-    .work-description {
-      padding-inline: var(--spacing-12);
     }
 
     .contact {
@@ -229,10 +157,12 @@ const projects = await getCollection("projects");
       --btn-border-color: var(--blue-7);
       --btn-border-color-hover: var(--blue-8);
     }
+  }
 
-    .card-image {
-      border-radius: var(--border-radius-lg);
-      aspect-ratio: 4 / 3;
-    }
+  img.profile-pic {
+    border-radius: var(--border-radius-full);
+    box-shadow: 0px 0px 10px 0px var(--violet-9);
+    aspect-ratio: 1;
+    max-inline-size: min(var(--sizing-lg), 100%);
   }
 </style>
