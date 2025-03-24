@@ -1,4 +1,5 @@
 ---
+import { Menu } from "lucide-astro";
 import Link from "./Link.astro";
 ---
 
@@ -6,13 +7,29 @@ import Link from "./Link.astro";
   <nav>
     <ul>
       <li>
-        <Link as="a" href="/" class="header-link">Home</Link>
+        <Link as="a" href="/">Home</Link>
       </li>
       <li>
-        <Link as="a" href="/about" class="header-link">About</Link>
+        <Link as="a" href="/about">About</Link>
       </li>
       <li>
-        <Link as="a" href="/projects" class="header-link">Projects</Link>
+        <Link as="a" href="/projects">Projects</Link>
+      </li>
+    </ul>
+  </nav>
+  <Link as="button" class="popover-button" popovertarget="popover-menu"
+    ><Menu slot="icon" />Menu</Link
+  >
+  <nav popover id="popover-menu">
+    <ul>
+      <li>
+        <Link as="a" href="/">Home</Link>
+      </li>
+      <li>
+        <Link as="a" href="/about">About</Link>
+      </li>
+      <li>
+        <Link as="a" href="/projects">Projects</Link>
       </li>
     </ul>
   </nav>
@@ -25,7 +42,60 @@ import Link from "./Link.astro";
       position: fixed;
       align-items: center;
       justify-content: center;
+      justify-items: center;
       width: 100%;
+      z-index: 10;
+    }
+
+    #popover-menu {
+      justify-items: center;
+      border: none;
+      transition-duration: 350ms;
+      transition-behavior: allow-discrete;
+      transition-property: opacity, transform, display, overlay;
+      opacity: 0;
+      transform: translateY(-1.5rem);
+      background-color: transparent;
+      margin-inline: auto;
+      margin-block-start: var(--spacing-16);
+
+      & ul {
+        flex-direction: column;
+        gap: var(--spacing-8);
+      }
+
+      &:popover-open {
+        opacity: 1;
+        transform: none;
+
+        &::backdrop {
+          opacity: 1;
+
+          @starting-style {
+            opacity: 0;
+          }
+        }
+
+        @starting-style {
+          & {
+            opacity: 0;
+            transform: translateY(-1.5rem);
+          }
+        }
+      }
+
+      &::backdrop {
+        opacity: 0;
+        transition-property: opacity;
+        transition-duration: 350ms;
+        backdrop-filter: blur(2px) brightness(30%);
+      }
+    }
+
+    nav {
+      padding: var(--spacing-4);
+      border-bottom-right-radius: var(--border-radius-lg);
+      border-bottom-left-radius: var(--border-radius-lg);
     }
 
     ul {
@@ -34,7 +104,6 @@ import Link from "./Link.astro";
       background-color: color-mix(in srgb, var(--gray-2) 40%, transparent);
       backdrop-filter: blur(2px);
       padding: var(--spacing-2);
-      margin-block-start: var(--spacing-4);
       border-radius: var(--border-radius-full);
     }
 
@@ -42,9 +111,24 @@ import Link from "./Link.astro";
       display: flex;
     }
 
-    .header-link {
-      min-inline-size: var(--sizing-72);
-      padding-block: var(--sizing-6);
+    .popover-button {
+      display: none;
+      box-shadow: 0px 0px 15px 0px black;
+      margin-block-start: var(--spacing-4);
+    }
+
+    @media (width < 48rem) {
+      nav:not(#popover-menu) {
+        display: none;
+      }
+
+      ul {
+        background-color: transparent;
+      }
+
+      .popover-button {
+        display: flex;
+      }
     }
   }
 </style>
