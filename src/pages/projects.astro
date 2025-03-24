@@ -2,13 +2,14 @@
 import Layout from "src/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import Project from "@components/Project.astro";
+import Flex from "@components/Flex.astro";
 
 const projects = await getCollection("projects");
 ---
 
 <Layout>
   <h1>Projects</h1>
-  <section>
+  <Flex as="section" class="projects" direction="column">
     {
       projects.map((proj, index) => (
         <Project
@@ -17,7 +18,7 @@ const projects = await getCollection("projects");
         />
       ))
     }
-  </section>
+  </Flex>
 </Layout>
 
 <style>
@@ -48,5 +49,9 @@ const projects = await getCollection("projects");
   h3,
   h4 {
     color: var(--btn-text-color);
+  }
+
+  .projects {
+    gap: var(--spacing-16);
   }
 </style>
