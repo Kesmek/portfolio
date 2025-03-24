@@ -7,87 +7,102 @@ import Johnabbott from "@assets/john-abbott.webp";
 import Wrap from "@components/Wrap.astro";
 import { Send } from "lucide-astro";
 import Link from "@components/Link.astro";
+import { getCollection } from "astro:content";
+import Flex from "@components/Flex.astro";
+
+const skills = await getCollection("skills");
 ---
 
 <Layout>
   <section>
     <h1>About</h1>
-    <div class="container">
-      <div class="profile-education">
+    <Flex class="container">
+      <Flex class="content-block" direction="column">
         <Image
           src={ProfilePic}
           alt={"Headshot of myself"}
           class={"profile-image"}
           priority
         />
-        <div class="education">
+        <Flex as="ul" class="education" direction="column">
           <h2>Education</h2>
-          <ul>
-            <li>
-              <div class="row">
-                <Image
-                  src={Mcgill}
-                  alt={"McGill university emblem"}
-                  fit={"contain"}
-                  class={"emblem"}
-                />
-                <div class="education-content">
-                  <h3>McGill University</h3>
-                  <h4><em>Bachelor of Science</em></h4>
-                  <div class="row program">
-                    <p>Major Computer Science</p>
-                    <b>2017 - 2022</b>
-                  </div>
-                  <div class="row program">
-                    <p>Minor Physics</p>
-                    <b>2017 - 2019</b>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="row">
-                <Image
-                  src={Johnabbott}
-                  alt={"John Abbott college emblem"}
-                  fit={"contain"}
-                  class={"emblem"}
-                />
-                <div class="education-content">
-                  <h3>John Abbott College</h3>
-                  <h4><em>Diplôme d'études Collégiales (DEC)</em></h4>
-                  <div class="row program">
-                    <p>Sciences Program</p>
-                    <b>2015 - 2017</b>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="intro-skills">
-        <h2>Justin Scopelleti</h2>
-        <p>
-          I’m a motivated software developer with an interest in building and
-          maintaning performant mobile and web applications. I have worked
-          across the full technology stack for both mobile and web development.
-          Some of the technologies I’ve used on mobile include React Native,
-          AWS, Node.js, Redux and the web technologies include Qwik and React
-          alongside HTML, CSS, and Java/TypeScript to build interactive
-          websites. Other technologies I’m also gaining experience with include
-          Firebase, Google Cloud Platform (GCP), and Docker to name a few. I am
-          always searching for ways to improve my programming skills, find new
-          interesting projects and strive to make each project something that I
-          can be proud of.
-        </p>
-        <Link
-          as={"a"}
-          href="mailto:justin.scopelleti@gmail.com"
-          variant="gradient"><Send />Get In Touch</Link
-        >
-      </div>
-    </div>
+          <li>
+            <Flex class="row">
+              <Image
+                src={Mcgill}
+                alt={"McGill university emblem"}
+                fit={"contain"}
+                class={"emblem"}
+              />
+              <Flex class="education-content" direction="column">
+                <h3>McGill University</h3>
+                <h4><em>Bachelor of Science</em></h4>
+                <Wrap class="program">
+                  <p>Major Computer Science</p>
+                  <b>2017 - 2022</b>
+                </Wrap>
+                <Wrap class="program">
+                  <p>Minor Physics</p>
+                  <b>2017 - 2019</b>
+                </Wrap>
+              </Flex>
+            </Flex>
+          </li>
+          <li>
+            <Flex class="row">
+              <Image
+                src={Johnabbott}
+                alt={"John Abbott college emblem"}
+                fit={"contain"}
+                class={"emblem"}
+              />
+              <Flex class="education-content" direction="column">
+                <h3>John Abbott College</h3>
+                <h4><em>Diplôme d'études Collégiales (DEC)</em></h4>
+                <Wrap class="program">
+                  <p>Sciences Program</p>
+                  <b>2015 - 2017</b>
+                </Wrap>
+              </Flex>
+            </Flex>
+          </li>
+        </Flex>
+      </Flex>
+      <Flex class="content-block" direction="column">
+        <Flex class="intro" direction="column">
+          <h2>Justin Scopelleti</h2>
+          <p>
+            I’m a motivated software developer with an interest in building and
+            maintaning performant mobile and web applications. I have worked
+            across the full technology stack for both mobile and web
+            development. Some of the technologies I’ve used on mobile include
+            React Native, AWS, Node.js, Redux and the web technologies include
+            Qwik and React alongside HTML, CSS, and Java/TypeScript to build
+            interactive websites. Other technologies I’m also gaining experience
+            with include Firebase, Google Cloud Platform (GCP), and Docker to
+            name a few. I am always searching for ways to improve my programming
+            skills, find new interesting projects and strive to make each
+            project something that I can be proud of.
+          </p>
+          <Link
+            as={"a"}
+            href="mailto:justin.scopelleti@gmail.com"
+            variant="gradient"><Send />Get In Touch</Link
+          >
+        </Flex>
+        <Flex as="ul" class="skills" direction="column">
+          <h2>Skills</h2>
+          {
+            skills.map((skill) => (
+              <li>
+                <h4>{skill.data.category}</h4>
+                {skill.data.description}
+              </li>
+            ))
+          }
+        </Flex>
+      </Flex>
+    </Flex>
   </section>
 </Layout>
 
@@ -96,7 +111,7 @@ import Link from "@components/Link.astro";
     --bg-gradient: linear-gradient(
       in oklab,
       var(--grass-1),
-      var(--grass-3),
+      var(--grass-2),
       var(--grass-1)
     );
     --btn-text-color: var(--grass-12);
@@ -108,57 +123,72 @@ import Link from "@components/Link.astro";
     --btn-border-color-hover: var(--grass-8);
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--btn-text-color);
+  }
+
   h1 {
     padding-block-start: var(--spacing-48);
-    padding-block-end: var(--spacing-16);
     text-align: center;
     text-transform: uppercase;
   }
 
-  .container {
-    display: flex;
-    flex-direction: row;
+  h3 {
+    text-wrap: nowrap;
   }
 
-  .profile-education {
-    display: flex;
-    flex-direction: column;
-    inline-size: fit-content;
+  h4 {
+    font-weight: normal;
+  }
+
+  .container {
+    padding-inline: var(--spacing-8);
+    padding-block: var(--spacing-12);
+    justify-content: center;
+    gap: var(--spacing-16);
+
+    @media (width < 72rem) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .profile-image {
     aspect-ratio: 1;
     border-radius: var(--border-radius-full);
     box-shadow: 0px 0px 10px 0px var(--grass-9);
-    max-inline-size: min(var(--sizing-md), 100%);
+    max-inline-size: min(var(--sizing-sm), 100%);
   }
 
   .emblem {
     max-inline-size: var(--sizing-48);
     aspect-ratio: 1;
     border-radius: var(--border-radius-xl);
+    min-inline-size: var(--sizing-20);
   }
 
   .row {
-    display: flex;
-    flex-direction: row;
     gap: var(--spacing-8);
   }
 
   .program {
-    gap: 0;
+    row-gap: var(--spacing-2);
     justify-content: space-between;
     max-inline-size: var(--sizing-144);
   }
 
   .education-content {
     inline-size: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
   }
 
   .education {
+    justify-items: center;
+    gap: var(--spacing-8);
+
     & ul {
       inline-size: fit-content;
     }
@@ -168,37 +198,25 @@ import Link from "@components/Link.astro";
     }
   }
 
-  .intro-skills {
-    max-inline-size: var(--sizing-xl);
+  .content-block {
+    gap: var(--spacing-12);
+    max-inline-size: 80ch;
+    align-items: center;
   }
 
-  .button {
-    display: flex;
-    gap: var(--spacing-4);
-    max-inline-size: var(--sizing-120);
-    min-inline-size: var(--sizing-88);
-    justify-content: center;
-    padding-inline: var(--spacing-12);
-    padding-block: var(--spacing-8);
-    border-radius: var(--border-radius-full);
-    background: linear-gradient(in oklab, var(--violet-2), var(--violet-4));
-    border: solid var(--border-width-thin) var(--violet-7);
-    transition: all 250ms ease;
-    text-align: center;
-    font-weight: bold;
-    color: var(--violet-12);
-    text-wrap: nowrap;
+  .intro {
+    align-items: center;
+    gap: var(--spacing-8);
+  }
 
-    &:hover,
-    &:focus-visible {
-      border-color: var(--violet-8);
-      box-shadow: 0px 0px 5px 0px var(--violet-9);
-      scale: 1.05;
-    }
-
-    &:active {
-      scale: 1.03;
-      background: linear-gradient(in oklab, var(--violet-3), var(--violet-5));
+  .skills {
+    align-items: center;
+    gap: var(--spacing-8);
+  }
+  @media (width < 72rem) {
+    .skills,
+    .intro {
+      text-align: center;
     }
   }
 </style>
