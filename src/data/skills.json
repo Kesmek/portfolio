@@ -1,0 +1,42 @@
+[
+  {
+    "id": "app-development",
+    "category": "App Development",
+    "description": "Used NodeJS + TypeScript to create and maintain several Discord bot applications. Bots interact with the Discord API through a library (DiscordX) using dependency injection. Some bots were deployed in a docker container hosted on GCP, others self hosted on a RaspberryPi using pm2."
+  },
+  {
+    "id": "web-development",
+    "category": "Web Development",
+    "description": "Many small web pages were produced using various frameworks including React, Qwik, Astro, PandaCSS. Care was taken to always use semantic HTML and CSS that adheres to accessibility guidelines. "
+  },
+  {
+    "id": "documentation",
+    "category": "Documentation",
+    "description": "Wrote structured, example driven, and easily readable documentation on all projects I’ve developed, including contributing to the documentation of the Qwik framework."
+  },
+  {
+    "id": "mobile-development",
+    "category": "Mobile Development",
+    "description": "Used React Native and TypeScript alongside many of the aforementioned tools to build multiple applications for Android and iOS."
+  },
+  {
+    "id": "tools",
+    "category": "Tools",
+    "description": "Git, Github, Redux, MongoDB, SQLite, AWS (S3, Lambda, API Gateway), Firebase, Cloudflare, Docker, GCP, NodeJS, Bun."
+  },
+  {
+    "id": "design",
+    "category": "Design",
+    "description": "Used Figma to create wireframes, intermediate and final designs of websites I've developed. Ensured proper prototyping for responsiveness (Web, Tablet, Mobile designs)."
+  },
+  {
+    "id": "languages",
+    "category": "Languages",
+    "description": "Ability to communicate in english fluently, both orally and written. Ability to communicate in french at an intermediate level both written and orally."
+  },
+  {
+    "id": "personal-qualities",
+    "category": "Personal Qualities",
+    "description": "I am a quick learner and take an interest in experimenting with the latest technologies including Qwik and Bun to name a few. I am also a tinkerer and much of the software on my system highly configurable."
+  }
+]
