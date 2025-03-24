@@ -28,12 +28,12 @@ const projects = await getCollection("projects");
       var(--blue-3),
       var(--blue-1)
     );
-    --btn-text-color: var(--blue-12);
     --btn-color-base: var(--blue-3);
     --btn-color-hover: var(--blue-4);
     --btn-color-active: var(--blue-5);
     --btn-border-color: var(--blue-7);
     --btn-border-color-hover: var(--blue-8);
+    --btn-text-color: var(--blue-12);
   }
 
   h1 {
@@ -41,5 +41,12 @@ const projects = await getCollection("projects");
     padding-block-end: var(--spacing-16);
     text-align: center;
     text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--btn-text-color);
   }
 </style>
