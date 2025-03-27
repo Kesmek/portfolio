@@ -5,7 +5,7 @@ import ProfilePic from "@assets/profile-pic.webp";
 import Mcgill from "@assets/mcgill.webp";
 import Johnabbott from "@assets/john-abbott.webp";
 import Wrap from "@components/Wrap.astro";
-import { Send } from "lucide-astro";
+import { Github, Linkedin, Send } from "lucide-astro";
 import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
 import Flex from "@components/Flex.astro";
@@ -84,11 +84,25 @@ const skills = await getCollection("skills");
             skills, find new interesting projects and strive to make each
             project something that I can be proud of.
           </p>
-          <Link
-            as={"a"}
-            href="mailto:justin.scopelleti@gmail.com"
-            variant="gradient"><Send />Get In Touch</Link
-          >
+          <Wrap>
+            <Link
+              as={"a"}
+              href="mailto:justin.scopelleti@gmail.com"
+              variant="gradient"><Send slot="icon" />Get In Touch</Link
+            >
+            <Link
+              as="a"
+              href="https://www.linkedin.com/in/justin-scopelleti-5b023a180/"
+              variant="gradient"
+              class="icon-link"><Linkedin slot="icon" /></Link
+            >
+            <Link
+              as="a"
+              href="https://github.com/Kesmek"
+              variant="gradient"
+              class="icon-link"><Github slot="icon" /></Link
+            >
+          </Wrap>
         </Flex>
         <Flex as="ul" class="skills" direction="column">
           <h2>Skills</h2>
@@ -114,26 +128,27 @@ const skills = await getCollection("skills");
       var(--grass-2),
       var(--grass-1)
     );
-    --btn-text-color: var(--grass-12);
-    --btn-color-background: var(--grass-2);
-    --btn-color-base: var(--grass-3);
-    --btn-color-hover: var(--grass-4);
-    --btn-color-active: var(--grass-5);
-    --btn-border-color: var(--grass-7);
-    --btn-border-color-hover: var(--grass-8);
+    --theme-text-color: var(--grass-12);
+    --theme-color-background: var(--grass-2);
+    --theme-color-base: var(--grass-3);
+    --theme-color-hover: var(--grass-4);
+    --theme-color-active: var(--grass-5);
+    --theme-border-color: var(--grass-7);
+    --theme-border-color-hover: var(--grass-8);
   }
 
   h1,
   h2,
   h3,
   h4 {
-    color: var(--btn-text-color);
+    color: var(--theme-text-color);
   }
 
   h1 {
     padding-block-start: var(--spacing-48);
     text-align: center;
     text-transform: uppercase;
+    text-decoration: underline;
   }
 
   h3 {
@@ -213,6 +228,12 @@ const skills = await getCollection("skills");
     align-items: center;
     gap: var(--spacing-8);
   }
+
+  .icon-link {
+    min-inline-size: var(--sizing-28);
+    padding-inline: var(--spacing-6);
+  }
+
   @media (width < 72rem) {
     .skills,
     .intro {
