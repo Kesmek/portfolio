@@ -49,6 +49,9 @@ const proj = project.data;
 
 <style>
   @layer component {
+    :is(h1, h2, h3, h4) {
+      color: var(--theme-text-color);
+    }
     .card-content {
       display: flex;
       flex-direction: column;
@@ -94,12 +97,12 @@ const proj = project.data;
       gap: var(--spacing-3);
       align-items: center;
       width: fit-content;
-      font-size: var(--font-size-4);
+      font-size: var(--font-size-fluid-1);
       font-weight: bold;
       transition: color 150ms ease;
 
       &:hover {
-        color: var(--btn-text-color);
+        color: var(--theme-text-color);
       }
     }
   }

@@ -29,12 +29,12 @@ const projects = await getCollection("projects");
       var(--blue-3),
       var(--blue-1)
     );
-    --btn-color-base: var(--blue-3);
-    --btn-color-hover: var(--blue-4);
-    --btn-color-active: var(--blue-5);
-    --btn-border-color: var(--blue-7);
-    --btn-border-color-hover: var(--blue-8);
-    --btn-text-color: var(--blue-12);
+    --theme-color-base: var(--blue-3);
+    --theme-color-hover: var(--blue-4);
+    --theme-color-active: var(--blue-5);
+    --theme-border-color: var(--blue-7);
+    --theme-border-color-hover: var(--blue-8);
+    --theme-text-color: var(--blue-12);
   }
 
   h1 {
@@ -42,13 +42,11 @@ const projects = await getCollection("projects");
     padding-block-end: var(--spacing-16);
     text-align: center;
     text-transform: uppercase;
+    text-decoration: underline;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: var(--btn-text-color);
+  :is(h1, h2, h3, h4) {
+    color: var(--theme-text-color);
   }
 
   .projects {

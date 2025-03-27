@@ -26,45 +26,45 @@ const className = props.class;
       padding-inline: var(--spacing-12);
       padding-block: var(--spacing-8);
       border-radius: var(--border-radius-full);
-      background-color: var(--btn-color-base);
-      border: solid var(--border-width-thin) var(--btn-border-color);
+      background-color: var(--theme-color-base);
+      border: solid var(--border-width-thin) var(--theme-border-color);
       transition: all 250ms ease;
       text-align: center;
       font-weight: bold;
-      color: var(--btn-text-color);
+      color: var(--theme-text-color);
       text-wrap: nowrap;
 
       &:hover,
       &:focus-visible {
-        border-color: var(--btn-border-color-hover);
-        background-color: var(--btn-color-hover);
+        border-color: var(--theme-border-color-hover);
+        background-color: var(--theme-color-hover);
         cursor: pointer;
         scale: 1.05;
       }
 
       &:active {
         scale: 1.03;
-        background-color: var(--btn-color-active);
+        background-color: var(--theme-color-active);
       }
     }
 
     .gradient {
       background: linear-gradient(
         in oklab,
-        var(--btn-color-background),
-        var(--btn-color-hover)
+        var(--theme-color-background),
+        var(--theme-color-hover)
       );
 
       &:hover,
       &:focus-visible {
-        box-shadow: 0px 0px 5px 0px var(--btn-border-color-hover);
+        box-shadow: 0px 0px 5px 0px var(--theme-border-color-hover);
       }
 
       &:active {
         background: linear-gradient(
           in oklab,
-          var(--btn-color-base),
-          var(--btn-color-active)
+          var(--theme-color-base),
+          var(--theme-color-active)
         );
       }
     }
