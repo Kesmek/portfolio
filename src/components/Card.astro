@@ -36,6 +36,15 @@ const contentClasses = `card-content ${variant === "reversed" ? "content-reverse
         "image"
         "content";
       gap: var(--spacing-16);
+      animation-name: fade-in, slide-in-left;
+      animation-timing-function: ease;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 0% entry-crossing 75%;
+    }
+
+    .card-reversed {
+      animation-name: fade-in, slide-in-right;
     }
 
     .card-image {
