@@ -1,6 +1,6 @@
 ---
-import { Menu } from "lucide-astro";
-import Link from "./Link.astro";
+import { Menu, Moon, Sun, SunMoon } from "lucide-astro";
+import Link from "@components/Link.astro";
 ---
 
 <header>
@@ -14,6 +14,13 @@ import Link from "./Link.astro";
       </li>
       <li>
         <Link as="a" href="/projects">Projects</Link>
+      </li>
+      <li>
+        <Link as="button" class="mode-toggle" id="mode-toggle">
+          <Sun slot="icon" class="mode-toggle__icon light" />
+          <Moon slot="icon" class="mode-toggle__icon dark" />
+          <SunMoon slot="icon" class="mode-toggle__icon auto" />
+        </Link>
       </li>
     </ul>
   </nav>
@@ -30,6 +37,13 @@ import Link from "./Link.astro";
       </li>
       <li>
         <Link as="a" href="/projects">Projects</Link>
+      </li>
+      <li>
+        <Link as="button" class="mode-toggle" id="mode-toggle-mobile">
+          <Sun slot="icon" class="mode-toggle__icon light" />
+          <Moon slot="icon" class="mode-toggle__icon dark" />
+          <SunMoon slot="icon" class="mode-toggle__icon auto" />
+        </Link>
       </li>
     </ul>
   </nav>
@@ -107,8 +121,48 @@ import Link from "./Link.astro";
       border-radius: var(--border-radius-full);
     }
 
+    .mode-toggle {
+      min-inline-size: var(--sizing-32);
+      padding-inline: 0;
+    }
+
+    .mode-toggle__icon {
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      transition-behavior: allow-discrete;
+      transition-property: display, opacity;
+      transition-duration: 500ms;
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    :root[data-theme="dark"] :is(.light, .auto) {
+      display: none;
+      opacity: 0;
+    }
+
+    :root[data-theme="light"] :is(.dark, .auto) {
+      display: none;
+      opacity: 0;
+    }
+
+    :root[data-theme="auto"] :is(.dark, .light) {
+      display: none;
+      opacity: 0;
+    }
+
+    .light,
+    .auto {
+      font-size: var(--font-size-5);
+    }
+
     li {
       display: flex;
+      position: relative;
     }
 
     .popover-button {
@@ -124,11 +178,46 @@ import Link from "./Link.astro";
 
       ul {
         background-color: transparent;
+        align-items: center;
       }
 
       .popover-button {
         display: flex;
       }
+
+      .mode-toggle {
+        padding-block: var(--spacing-14);
+      }
     }
   }
 </style>
+
+<script is:inline>
+  console.log("press");
+  const theme = localStorage?.getItem("theme") ?? "auto";
+  document.documentElement.dataset.theme = theme;
+  window.localStorage.setItem("theme", theme);
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    let newTheme = theme;
+
+    if (element.dataset.theme === "auto") {
+      newTheme = "light";
+    } else if (element.dataset.theme === "light") {
+      newTheme = "dark";
+    } else {
+      newTheme = "auto";
+    }
+
+    element.dataset.theme = newTheme;
+    localStorage.setItem("theme", newTheme);
+  };
+
+  document
+    .getElementById("mode-toggle")
+    ?.addEventListener("click", handleToggleClick);
+  document
+    .getElementById("mode-toggle-mobile")
+    ?.addEventListener("click", handleToggleClick);
+</script>
