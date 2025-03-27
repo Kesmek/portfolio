@@ -1,8 +1,169 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Welcome from "../components/Welcome.astro";
+
+import { Image } from "astro:assets";
+import ProfilePic from "@assets/profile-pic.webp";
+import Wrap from "@components/Wrap.astro";
+import Card from "@components/Card.astro";
+import { Download, Send } from "lucide-astro";
+import { getCollection } from "astro:content";
+import Project from "@components/Project.astro";
+import Link from "@components/Link.astro";
+
+const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <Welcome />
+  <section class="hero">
+    <Card>
+      <Image
+        src={ProfilePic}
+        alt={"A profile picture of myself"}
+        class="profile-pic"
+        slot="image"
+        priority
+      />
+      <div class="hero-content" slot="content">
+        <h1>Justin <br />Scopelleti</h1>
+        <h2 class="headline">
+          Building the future of the web with performance and accessibility at
+          the forefront.
+        </h2>
+        <Wrap class="button-group">
+          <Link
+            as="a"
+            variant="gradient"
+            href="mailto:justin.scopelleti@gmail.com"
+            ><Send slot="icon" />Get In Touch</Link
+          >
+          <Link
+            as="a"
+            href="https://drive.google.com/uc?export=download&id=1_XbPMvBtg2cKwBd7vQf0WNENhF4YDVr_"
+            variant="gradient"><Download slot="icon" />Resume</Link
+          >
+        </Wrap>
+      </div>
+    </Card>
+  </section>
+  <section class="works">
+    <h2>Select Works</h2>
+    <Project project={projects[0]} variant="reversed" />
+    <Project project={projects[1]} />
+    <Link as="a" href="/projects" variant="gradient" class="projects-button"
+      >All Projects</Link
+    >
+  </section>
+  <section class="contact">
+    <h2>Interested in Working Together?</h2>
+    <Link as="a" href="mailto:justin.scopelleti@gmail.com" variant="gradient"
+      ><Send slot="icon" />Get In Touch</Link
+    >
+  </section>
 </Layout>
+
+<style>
+  :root {
+    --bg-gradient: linear-gradient(
+      in oklab,
+      var(--violet-1),
+      var(--violet-3),
+      var(--violet-1)
+    );
+    --theme-text-color: var(--violet-12);
+    --theme-color-background: var(--violet-2);
+    --theme-color-base: var(--violet-3);
+    --theme-color-hover: var(--violet-4);
+    --theme-color-active: var(--violet-5);
+    --theme-border-color: var(--violet-7);
+    --theme-border-color-hover: var(--violet-8);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 5dvw;
+    padding-block: var(--spacing-16);
+  }
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  .hero {
+    display: flex;
+    min-block-size: 100dvh;
+    gap: clamp(var(--spacing-12), 3dvw, var(--spacing-32));
+  }
+
+  .hero-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-16);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(var(--spacing-8), 3dvw, var(--spacing-16));
+  }
+
+  p {
+    max-inline-size: 80ch;
+  }
+
+  .headline {
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .button-group {
+    gap: clamp(var(--spacing-4), 3dvw, var(--spacing-16));
+  }
+
+  .works {
+    gap: var(--spacing-12);
+    padding-inline: 0;
+
+    & h2 {
+      color: var(--theme-text-color);
+    }
+  }
+
+  .contact {
+    gap: var(--spacing-12);
+
+    & h2 {
+      text-align: center;
+    }
+  }
+
+  .projects-button {
+    margin-block-start: var(--spacing-20);
+    --bg-gradient: linear-gradient(
+      in oklab,
+      var(--blue-1),
+      var(--blue-3),
+      var(--blue-1)
+    );
+    --theme-text-color: var(--blue-12);
+    --theme-color-background: var(--blue-2);
+    --theme-color-base: var(--blue-3);
+    --theme-color-hover: var(--blue-4);
+    --theme-color-active: var(--blue-5);
+    --theme-border-color: var(--blue-7);
+    --theme-border-color-hover: var(--blue-8);
+  }
+
+  img.profile-pic {
+    border-radius: var(--border-radius-full);
+    box-shadow: 0px 0px 10px 0px var(--violet-9);
+    aspect-ratio: 1;
+    max-inline-size: min(var(--sizing-lg), 100%);
+  }
+</style>
