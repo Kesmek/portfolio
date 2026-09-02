@@ -44,4 +44,5 @@ lerna-debug.log*
 src/styled-system
 
 # Cloudflare
-functions/**/*.js
+.wrangler/
+.dev.vars*

@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:cf": "astro build && wrangler dev",
+    "deploy": "astro build && wrangler deploy",
     "astro": "astro"
   },
   "dependencies": {
@@ -15,6 +17,7 @@
     "lucide-astro": "^0.479.0",
     "prettier": "^3.5.1",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript-plugin-css-modules": "^5.1.0"
+    "typescript-plugin-css-modules": "^5.1.0",
+    "wrangler": "^4.128.0"
   }
 }

@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Link from "@components/Link.astro";
+import { Home } from "lucide-astro";
+---
+
+<Layout>
+  <section class="not-found">
+    <h1>404</h1>
+    <p>This page doesn't exist.</p>
+    <Link as="a" href="/" variant="gradient"><Home slot="icon" />Back Home</Link
+    >
+  </section>
+</Layout>
+
+<style>
+  :root {
+    --bg-gradient: linear-gradient(
+      in oklab,
+      var(--violet-1),
+      var(--violet-3),
+      var(--violet-1)
+    );
+    --theme-text-color: var(--violet-12);
+    --theme-color-background: var(--violet-2);
+    --theme-color-base: var(--violet-3);
+    --theme-color-hover: var(--violet-4);
+    --theme-color-active: var(--violet-5);
+    --theme-border-color: var(--violet-7);
+    --theme-border-color-hover: var(--violet-8);
+  }
+
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 100dvh;
+    gap: var(--spacing-12);
+    padding-inline: 5dvw;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 10dvw, 6rem);
+  }
+</style>
